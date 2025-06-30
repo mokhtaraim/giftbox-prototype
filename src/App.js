@@ -5,6 +5,12 @@ import Header from './components/Header';
 import RadioQuestion from './components/RadioQuestion';
 import CheckboxQuestion from './components/CheckboxQuestion';
 import TextQuestion from './components/TextQuestion';
+import NPSQuestion from './components/NPSQuestion';
+import ScaleQuestion from './components/ScaleQuestion';
+import MultiTextQuestion from './components/MultiTextQuestion';
+import GridQuestion from './components/GridQuestion';
+import SliderQuestion from './components/SliderQuestion';
+import RankingQuestion from './components/RankingQuestion';
 import Navigation from './components/Navigation';
 import CompletionScreen from './components/CompletionScreen';
 
@@ -20,12 +26,20 @@ function App() {
   const canProceed = () => {
     const currentAnswer = answers[currentQuestion.id];
     
-    if (currentQuestion.type === 'radio') {
+    if (currentQuestion.type === 'radio' || currentQuestion.type === 'scale') {
       return currentAnswer !== undefined;
     } else if (currentQuestion.type === 'checkbox') {
       return currentAnswer && currentAnswer.length > 0;
     } else if (currentQuestion.type === 'text') {
       return currentAnswer && currentAnswer.trim().length > 0;
+    } else if (currentQuestion.type === 'nps' || currentQuestion.type === 'slider') {
+      return currentAnswer !== undefined;
+    } else if (currentQuestion.type === 'multi-text') {
+      return currentAnswer && currentAnswer.some(answer => answer.trim().length > 0);
+    } else if (currentQuestion.type === 'grid') {
+      return currentAnswer && Object.keys(currentAnswer).length === currentQuestion.rows.length;
+    } else if (currentQuestion.type === 'ranking') {
+      return currentAnswer && currentAnswer.length === currentQuestion.options.length;
     }
     
     return false;
@@ -116,6 +130,54 @@ function App() {
           <TextQuestion
             question={currentQuestion}
             answer={currentAnswer || ''}
+            onAnswerChange={handleAnswerChange}
+          />
+        );
+      case 'nps':
+        return (
+          <NPSQuestion
+            question={currentQuestion}
+            selectedAnswer={currentAnswer}
+            onAnswerChange={handleAnswerChange}
+          />
+        );
+      case 'scale':
+        return (
+          <ScaleQuestion
+            question={currentQuestion}
+            selectedAnswer={currentAnswer}
+            onAnswerChange={handleAnswerChange}
+          />
+        );
+      case 'multi-text':
+        return (
+          <MultiTextQuestion
+            question={currentQuestion}
+            answer={currentAnswer || ['']}
+            onAnswerChange={handleAnswerChange}
+          />
+        );
+      case 'grid':
+        return (
+          <GridQuestion
+            question={currentQuestion}
+            selectedAnswers={currentAnswer || {}}
+            onAnswerChange={handleAnswerChange}
+          />
+        );
+      case 'slider':
+        return (
+          <SliderQuestion
+            question={currentQuestion}
+            selectedAnswer={currentAnswer}
+            onAnswerChange={handleAnswerChange}
+          />
+        );
+      case 'ranking':
+        return (
+          <RankingQuestion
+            question={currentQuestion}
+            selectedAnswers={currentAnswer || currentQuestion.options.map((option, index) => ({ option, rank: index + 1 }))}
             onAnswerChange={handleAnswerChange}
           />
         );
