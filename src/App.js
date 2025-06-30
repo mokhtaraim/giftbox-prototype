@@ -76,33 +76,7 @@ function App() {
     setIsCompleted(false);
   };
 
-  // Handle swipe up gesture
-  useEffect(() => {
-    let startY = 0;
-    let endY = 0;
 
-    const handleTouchStart = (e) => {
-      startY = e.touches[0].clientY;
-    };
-
-    const handleTouchEnd = (e) => {
-      endY = e.changedTouches[0].clientY;
-      const deltaY = startY - endY;
-      
-      // Swipe up to go to next question (minimum 50px swipe)
-      if (deltaY > 50 && canProceed()) {
-        handleNext();
-      }
-    };
-
-    document.addEventListener('touchstart', handleTouchStart);
-    document.addEventListener('touchend', handleTouchEnd);
-
-    return () => {
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [currentQuestionIndex, answers]);
 
   // Render current question based on type
   const renderQuestion = () => {

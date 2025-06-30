@@ -289,6 +289,7 @@ code {
   justify-content: space-between;
   align-items: center;
   background: #f8f9fa;
+  gap: 20px;
 }
 
 .nav-button {
@@ -316,10 +317,13 @@ code {
 .nav-button.next {
   background: #6c757d;
   color: white;
-  min-width: 120px;
+  min-width: 160px;
   border-radius: 12px;
-  padding: 15px 30px;
+  padding: 18px 40px;
   font-weight: 600;
+  font-size: 18px;
+  flex-grow: 1;
+  max-width: 200px;
 }
 
 .nav-button.next:hover {
@@ -331,29 +335,7 @@ code {
   cursor: not-allowed;
 }
 
-/* Progress dots */
-.progress-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin: 10px 0;
-}
 
-.progress-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #e0e0e0;
-  transition: background 0.2s ease;
-}
-
-.progress-dot.active {
-  background: #6c757d;
-}
-
-.progress-dot.completed {
-  background: #6c757d;
-}
 
 /* NPS Question */
 .nps-container {

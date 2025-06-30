@@ -17,21 +17,6 @@ const Navigation = ({
         ⬆️
       </button>
       
-      <div className="progress-dots">
-        {Array.from({ length: totalQuestions }, (_, index) => (
-          <div
-            key={index}
-            className={`progress-dot ${
-              index + 1 === currentQuestion 
-                ? 'active' 
-                : index + 1 < currentQuestion 
-                ? 'completed' 
-                : ''
-            }`}
-          ></div>
-        ))}
-      </div>
-      
       <button 
         className="nav-button next"
         onClick={onNext}
