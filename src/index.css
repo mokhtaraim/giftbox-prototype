@@ -60,6 +60,11 @@ code {
     max-width: 800px;
     margin: 15px auto;
   }
+  
+  /* Grid questions need full width */
+  .grid-container {
+    max-width: 100% !important;
+  }
 }
 
 /* Large desktop styles */
@@ -70,6 +75,11 @@ code {
   
   .question-container {
     max-width: 900px;
+  }
+  
+  /* Grid questions need full width on large screens too */
+  .grid-container {
+    max-width: 100% !important;
   }
 }
 
@@ -98,7 +108,7 @@ code {
 
 .spotlight-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-bottom: 15px;
 }
@@ -201,11 +211,17 @@ code {
 .text-input-container,
 .nps-container,
 .multi-text-container,
-.grid-container,
 .slider-container,
 .ranking-container {
   width: 100%;
   margin-bottom: auto;
+}
+
+/* Grid container needs full width */
+.grid-container {
+  width: 100%;
+  margin-bottom: auto;
+  max-width: none;
 }
 
 .question-title {
@@ -429,13 +445,26 @@ code {
   }
   
   .ranking-item {
-    padding: 16px 20px;
+    padding: 18px 20px;
     margin-bottom: 12px;
   }
   
   .ranking-text {
     font-size: 18px;
   }
+  
+  .ranking-number {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+  
+  .drag-handle {
+    font-size: 20px;
+    padding: 0 8px;
+  }
+  
+
 }
 
 /* Navigation */
@@ -700,20 +729,27 @@ code {
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  min-width: 400px;
   width: 100%;
+  min-width: 100%;
 }
 
 /* Desktop grid improvements */
 @media (min-width: 768px) {
+  .grid-container {
+    max-width: 100%;
+  }
+  
   .grid-table {
-    min-width: 600px;
+    width: 100%;
+    min-width: 100%;
   }
   
   .grid-cell {
     padding: 16px 12px;
     font-size: 16px;
   }
+  
+
 }
 
 .grid-header, .grid-row {
@@ -726,6 +762,7 @@ code {
   border-bottom: 1px solid #ddd;
   text-align: center;
   font-size: 14px;
+  flex: 1;
 }
 
 .grid-cell:last-child {
@@ -738,25 +775,25 @@ code {
 
 .grid-cell-empty {
   background: #f8f9fa;
-  min-width: 120px;
+  flex: 2;
 }
 
 .grid-cell-header {
   background: #f8f9fa;
   font-weight: 500;
-  min-width: 80px;
+  flex: 1;
 }
 
 .grid-cell-row-header {
   background: #f8f9fa;
   font-weight: 500;
   text-align: right;
-  min-width: 120px;
+  flex: 2;
 }
 
 .grid-cell-data {
   cursor: pointer;
-  min-width: 80px;
+  flex: 1;
   transition: background 0.2s ease;
 }
 
@@ -854,25 +891,64 @@ code {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 12px;
+  padding: 15px;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   margin-bottom: 10px;
   background: white;
+  cursor: grab;
+  transition: all 0.3s ease;
+  user-select: none;
 }
 
-.ranking-select {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-family: 'Cairo', sans-serif;
+.ranking-item:hover {
+  border-color: #6c757d;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+
+.ranking-item.dragging {
+  opacity: 0.5;
+  transform: rotate(5deg);
+  cursor: grabbing;
+  z-index: 1000;
+}
+
+.ranking-number {
+  background: #6c757d;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
   font-size: 14px;
-  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.drag-handle {
+  color: #999;
+  font-size: 18px;
+  cursor: grab;
+  padding: 0 5px;
+  transition: color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ranking-item:hover .drag-handle {
+  color: #6c757d;
+}
+
+.ranking-item.dragging .drag-handle {
+  cursor: grabbing;
 }
 
 .ranking-text {
   font-size: 16px;
   color: #333;
+  flex: 1;
 }
 
 .ranking-help {
@@ -881,7 +957,7 @@ code {
 }
 
 .help-text {
-  font-size: 12px;
+  font-size: 13px;
   color: #666;
   font-style: italic;
 }

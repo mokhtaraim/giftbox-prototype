@@ -1,28 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const RankingQuestion = ({ question, selectedAnswers, onAnswerChange }) => {
-  const rankings = selectedAnswers || question.options.map((option, index) => ({ option, rank: index + 1 }));
+  const [rankings, setRankings] = useState(
+    selectedAnswers || question.options.map((option, index) => ({ option, id: index }))
+  );
+  const [draggedItem, setDraggedItem] = useState(null);
 
-  const handleRankChange = (optionIndex, newRank) => {
+  const handleDragStart = (e, index) => {
+    setDraggedItem(index);
+    e.dataTransfer.effectAllowed = 'move';
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const handleDrop = (e, dropIndex) => {
+    e.preventDefault();
+    
+    if (draggedItem === null || draggedItem === dropIndex) return;
+
     const newRankings = [...rankings];
-    const targetRank = parseInt(newRank);
+    const draggedItemData = newRankings[draggedItem];
     
-    // Update the rank for the selected option
-    newRankings[optionIndex].rank = targetRank;
+    // Remove the dragged item
+    newRankings.splice(draggedItem, 1);
     
-    // Adjust other rankings to avoid duplicates
-    newRankings.forEach((item, index) => {
-      if (index !== optionIndex && item.rank === targetRank) {
-        // Find the next available rank
-        let nextRank = 1;
-        while (newRankings.some((r, i) => i !== index && r.rank === nextRank)) {
-          nextRank++;
-        }
-        item.rank = nextRank;
-      }
-    });
+    // Insert it at the new position
+    newRankings.splice(dropIndex, 0, draggedItemData);
     
+    setRankings(newRankings);
     onAnswerChange(newRankings);
+    setDraggedItem(null);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedItem(null);
   };
 
   return (
@@ -34,25 +48,24 @@ const RankingQuestion = ({ question, selectedAnswers, onAnswerChange }) => {
       
       <div className="ranking-container">
         {rankings.map((item, index) => (
-          <div key={index} className="ranking-item">
-            <select
-              className="ranking-select"
-              value={item.rank}
-              onChange={(e) => handleRankChange(index, e.target.value)}
-            >
-              {question.options.map((_, i) => (
-                <option key={i + 1} value={i + 1}>
-                  {i + 1}
-                </option>
-              ))}
-            </select>
+          <div
+            key={item.id}
+            className={`ranking-item ${draggedItem === index ? 'dragging' : ''}`}
+            draggable={true}
+            onDragStart={(e) => handleDragStart(e, index)}
+            onDragOver={handleDragOver}
+            onDrop={(e) => handleDrop(e, index)}
+            onDragEnd={handleDragEnd}
+          >
+            <div className="ranking-number">{index + 1}</div>
+            <div className="drag-handle">⋮⋮</div>
             <span className="ranking-text">{item.option}</span>
           </div>
         ))}
       </div>
       
       <div className="ranking-help">
-        <p className="help-text">1 = الأهم، {question.options.length} = الأقل أهمية</p>
+        <p className="help-text">اسحب العناصر لإعادة ترتيبها - 1 = الأهم، {question.options.length} = الأقل أهمية</p>
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ function App() {
     } else if (currentQuestion.type === 'grid') {
       return currentAnswer && Object.keys(currentAnswer).length === currentQuestion.rows.length;
     } else if (currentQuestion.type === 'ranking') {
-      return currentAnswer && currentAnswer.length === currentQuestion.options.length;
+      return currentAnswer && Array.isArray(currentAnswer) && currentAnswer.length === currentQuestion.options.length;
     }
     
     return false;
@@ -151,7 +151,7 @@ function App() {
         return (
           <RankingQuestion
             question={currentQuestion}
-            selectedAnswers={currentAnswer || currentQuestion.options.map((option, index) => ({ option, rank: index + 1 }))}
+            selectedAnswers={currentAnswer || currentQuestion.options.map((option, index) => ({ option, id: index }))}
             onAnswerChange={handleAnswerChange}
           />
         );
