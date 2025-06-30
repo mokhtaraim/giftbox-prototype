@@ -14,6 +14,16 @@ body {
   background-color: #e9ecef;
   direction: rtl;
   text-align: right;
+  overflow-x: hidden;
+}
+
+/* Mobile optimization */
+@media (max-width: 767px) {
+  .question-container {
+    margin: 10px;
+    padding: 25px 15px 15px;
+    min-height: 450px;
+  }
 }
 
 code {
@@ -29,23 +39,37 @@ code {
 
 /* Mobile-first responsive design */
 .container {
-  max-width: 400px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   background: #f8f9fa;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Desktop styles */
+/* Desktop styles - full width layout */
 @media (min-width: 768px) {
   .container {
-    max-width: 500px;
-    margin: 20px auto;
-    min-height: calc(100vh - 40px);
-    border-radius: 20px;
-    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  .question-container {
+    max-width: 800px;
+    margin: 15px auto;
+  }
+}
+
+/* Large desktop styles */
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 80px;
+  }
+  
+  .question-container {
+    max-width: 900px;
   }
 }
 
@@ -57,6 +81,19 @@ code {
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+/* Desktop header adjustments */
+@media (min-width: 768px) {
+  .header {
+    padding: 20px 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    padding: 20px 80px;
+  }
 }
 
 .spotlight-header {
@@ -83,6 +120,19 @@ code {
 .globe-icon {
   font-size: 18px;
   color: #666;
+}
+
+/* Desktop spotlight header improvements */
+@media (min-width: 768px) {
+  .spotlight-header {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    padding: 0;
+  }
+  
+  .spotlight-text {
+    font-size: 18px;
+  }
 }
 
 /* Progress bar */
@@ -114,6 +164,23 @@ code {
   float: right;
 }
 
+/* Desktop progress bar improvements */
+@media (min-width: 768px) {
+  .progress-container {
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  .progress-bar {
+    height: 10px;
+  }
+  
+  .progress-text {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
 /* Question container */
 .question-container {
   flex: 1;
@@ -123,6 +190,22 @@ code {
   background: white;
   margin: 15px;
   border-radius: 12px;
+  min-height: 500px;
+  justify-content: flex-start;
+}
+
+/* Ensure consistent spacing for all question types */
+.radio-group,
+.checkbox-group,
+.scale-group,
+.text-input-container,
+.nps-container,
+.multi-text-container,
+.grid-container,
+.slider-container,
+.ranking-container {
+  width: 100%;
+  margin-bottom: auto;
 }
 
 .question-title {
@@ -138,6 +221,21 @@ code {
   color: #666;
   margin-bottom: 30px;
   line-height: 1.4;
+}
+
+/* Desktop typography improvements */
+@media (min-width: 768px) {
+  .question-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  
+  .question-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
 }
 
 /* Radio buttons */
@@ -199,6 +297,28 @@ code {
   font-size: 16px;
   color: #333;
   line-height: 1.4;
+}
+
+/* Desktop radio/checkbox improvements */
+@media (min-width: 768px) {
+  .radio-group,
+  .checkbox-group,
+  .scale-group {
+    max-width: 600px;
+    margin: 0 auto auto auto;
+  }
+  
+  .radio-option,
+  .checkbox-option,
+  .scale-option {
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  
+  .radio-text,
+  .scale-text {
+    font-size: 18px;
+  }
 }
 
 /* Checkbox styles */
@@ -282,6 +402,42 @@ code {
   color: #999;
 }
 
+/* Desktop text input improvements */
+@media (min-width: 768px) {
+  .text-input-container,
+  .multi-text-container {
+    max-width: 700px;
+    margin: 0 auto auto auto;
+  }
+  
+  .text-input,
+  .multi-text-input {
+    font-size: 16px;
+    min-height: 140px;
+    padding: 18px;
+  }
+  
+  .slider-container {
+    max-width: 500px;
+    margin: 0 auto auto auto;
+    padding: 30px 0;
+  }
+  
+  .ranking-container {
+    max-width: 600px;
+    margin: 0 auto auto auto;
+  }
+  
+  .ranking-item {
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+  
+  .ranking-text {
+    font-size: 18px;
+  }
+}
+
 /* Navigation */
 .navigation {
   padding: 20px;
@@ -290,6 +446,22 @@ code {
   align-items: center;
   background: #f8f9fa;
   gap: 20px;
+}
+
+/* Desktop navigation adjustments */
+@media (min-width: 768px) {
+  .navigation {
+    padding: 25px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navigation {
+    padding: 25px 0;
+    max-width: 900px;
+  }
 }
 
 .nav-button {
@@ -348,6 +520,22 @@ code {
   gap: 8px;
   margin-bottom: 15px;
   flex-wrap: wrap;
+}
+
+/* Desktop NPS improvements */
+@media (min-width: 768px) {
+  .nps-scale {
+    justify-content: center;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+  }
+  
+  .nps-button {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
 }
 
 .nps-button {
@@ -513,6 +701,19 @@ code {
   border-radius: 8px;
   overflow: hidden;
   min-width: 400px;
+  width: 100%;
+}
+
+/* Desktop grid improvements */
+@media (min-width: 768px) {
+  .grid-table {
+    min-width: 600px;
+  }
+  
+  .grid-cell {
+    padding: 16px 12px;
+    font-size: 16px;
+  }
 }
 
 .grid-header, .grid-row {
@@ -694,6 +895,24 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* Desktop completion screen improvements */
+@media (min-width: 768px) {
+  .completion-screen {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+  
+  .completion-title {
+    font-size: 32px;
+  }
+  
+  .completion-subtitle {
+    font-size: 18px;
+    max-width: 500px;
+  }
 }
 
 .completion-icon {
