@@ -13,11 +13,14 @@ import SliderQuestion from './components/SliderQuestion';
 import RankingQuestion from './components/RankingQuestion';
 import Navigation from './components/Navigation';
 import CompletionScreen from './components/CompletionScreen';
+import WelcomeScreen from './components/WelcomeScreen';
 
 function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [isCompleted, setIsCompleted] = useState(false);
+  const [isStarted, setIsStarted] = useState(false);
+  const [language, setLanguage] = useState('ar');
 
   const currentQuestion = surveyQuestions[currentQuestionIndex];
   const isLastQuestion = currentQuestionIndex === surveyQuestions.length - 1;
@@ -74,8 +77,13 @@ function App() {
     setCurrentQuestionIndex(0);
     setAnswers({});
     setIsCompleted(false);
+    setIsStarted(false);
   };
 
+  useEffect(() => {
+    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = language;
+  }, [language]);
 
 
   // Render current question based on type
@@ -160,6 +168,23 @@ function App() {
     }
   };
 
+  if (!isStarted) {
+    return (
+      <div className="app">
+        <div className="container">
+          <Header 
+            currentQuestion={0} 
+            totalQuestions={surveyQuestions.length}
+            showProgress={false}
+            language={language}
+            onLanguageChange={setLanguage}
+          />
+          <WelcomeScreen onStart={() => setIsStarted(true)} language={language} />
+        </div>
+      </div>
+    );
+  }
+
   if (isCompleted) {
     return (
       <div className="app">
@@ -167,6 +192,9 @@ function App() {
           <Header 
             currentQuestion={surveyQuestions.length} 
             totalQuestions={surveyQuestions.length} 
+            showProgress={true}
+            language={language}
+            onLanguageChange={setLanguage}
           />
           <CompletionScreen onRestart={handleRestart} />
         </div>
@@ -179,7 +207,10 @@ function App() {
       <div className="container">
         <Header 
           currentQuestion={currentQuestionIndex + 1} 
-          totalQuestions={surveyQuestions.length} 
+          totalQuestions={surveyQuestions.length}
+          showProgress={true}
+          language={language}
+          onLanguageChange={setLanguage}
         />
         
         {renderQuestion()}
