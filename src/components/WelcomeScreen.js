@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Welcome screen component with multi-language support
 const WelcomeScreen = ({ onStart, language = 'ar' }) => {
   const texts = {
     ar: {
