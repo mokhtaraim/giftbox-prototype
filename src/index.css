@@ -1033,4 +1033,35 @@ code {
 
 .restart-button:hover {
   background: #3d7bd6;
+}
+
+/* Welcome screen start button */
+.welcome-start-button {
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 30px;
+  fontSize: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Cairo', sans-serif;
+  margin: 30px auto 0;
+  display: block;
+  max-width: 200px;
+  width: 100%;
+  transition: background 0.2s ease;
+}
+
+.welcome-start-button:hover {
+  background: #5a6268;
+}
+
+/* Mobile optimization for welcome button */
+@media (max-width: 767px) {
+  .welcome-start-button {
+    max-width: 180px;
+    padding: 12px 24px;
+    font-size: 15px;
+  }
 } 

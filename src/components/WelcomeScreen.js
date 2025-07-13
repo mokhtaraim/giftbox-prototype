@@ -35,7 +35,28 @@ const WelcomeScreen = ({ onStart, language = 'ar' }) => {
       <img src="/8.svg" alt="Welcome illustration" style={{maxWidth: '100%', height: 'auto', marginBottom: '20px'}} />
       <h2 className="question-title">{title}</h2>
       <p className="question-subtitle">{subtitle}</p>
-      <button className="nav-button next" onClick={onStart} style={{margin: '30px auto 0', display: 'block'}}>
+      <button 
+        className="welcome-start-button" 
+        onClick={onStart}
+        style={{
+          background: '#6c757d',
+          color: 'white',
+          border: 'none',
+          borderRadius: '12px',
+          padding: '15px 30px',
+          fontSize: '16px',
+          fontWeight: '600',
+          cursor: 'pointer',
+          fontFamily: 'Cairo, sans-serif',
+          margin: '30px auto 0',
+          display: 'block',
+          maxWidth: '200px',
+          width: '100%',
+          transition: 'background 0.2s ease'
+        }}
+        onMouseOver={(e) => e.target.style.background = '#5a6268'}
+        onMouseOut={(e) => e.target.style.background = '#6c757d'}
+      >
         {button}
       </button>
     </div>
