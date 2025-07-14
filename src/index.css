@@ -130,14 +130,14 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 12px;
-  padding: 8px 0;
+  margin-bottom: 10px;
+  padding: 6px 0;
 }
 
 .spotlight-text {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   font-size: 16px;
   font-weight: 400;
   color: #333;
@@ -145,38 +145,38 @@ code {
 }
 
 .dropdown-arrow {
-  font-size: 10px;
+  font-size: 8px;
   color: #999;
-  margin-left: 4px;
+  margin-left: 2px;
 }
 
 .globe-icon {
   font-size: 16px;
   color: #666;
-  margin-left: 2px;
+  margin-left: 4px;
 }
 
 /* Desktop spotlight header improvements */
 @media (min-width: 768px) {
   .spotlight-header {
     max-width: 800px;
-    margin: 0 auto 10px auto;
+    margin: 0 auto 8px auto;
     padding: 0;
   }
   
   .spotlight-text {
     font-size: 16px;
-    gap: 6px;
+    gap: 4px;
   }
   
   .dropdown-arrow {
-    font-size: 10px;
-    margin-left: 4px;
+    font-size: 8px;
+    margin-left: 2px;
   }
   
   .globe-icon {
     font-size: 16px;
-    margin-left: 2px;
+    margin-left: 4px;
   }
 }
 
