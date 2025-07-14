@@ -2,6 +2,8 @@
 
 A React-based survey application prototype with Arabic language support, designed for both mobile and web platforms.
 
+<!-- Updated for GitHub push test -->
+
 ## Features
 
 - **Multiple Question Types**: Radio buttons, checkboxes, and text input
