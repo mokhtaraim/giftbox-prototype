@@ -1,32 +1,60 @@
 import React, { useState } from 'react';
 
 const Header = ({ currentQuestion, totalQuestions, showProgress = true, language, onLanguageChange }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const progress = (currentQuestion / totalQuestions) * 100;
+  
   const languages = [
     { value: 'ar', label: 'العربية' },
     { value: 'en', label: 'English' },
-    { value: 'fr', label: 'French' },
+    { value: 'fr', label: 'Français' },
     { value: 'de', label: 'Deutsch' },
-    { value: 'es', label: 'Spanish' },
+    { value: 'es', label: 'Español' },
+    { value: 'it', label: 'Italiano' },
+    { value: 'pt', label: 'Português' },
   ];
-  const titleTexts = {
-    ar: 'أي لغة تحب؟',
-    en: 'Which language do you prefer?',
-    fr: 'Quelle langue préférez-vous ?',
-    de: 'Welche Sprache bevorzugen Sie?',
-    es: '¿Qué idioma prefieres?'
-  };
+
+  const currentLanguageLabel = languages.find(lang => lang.value === language)?.label || 'English';
+
   return (
     <>
       <div className="header">
-        <div className="spotlight-header">
-          <div className="spotlight-text" style={{cursor: 'pointer'}} onClick={() => setShowModal(true)}>
-            <span>Spotlight</span>
-            <span className="dropdown-arrow">▼</span>
-            <span className="globe-icon">🌐</span>
+        <div className="header-content">
+          <div className="spotlight-header">
+            <div className="spotlight-text">
+              <span>Spotlight</span>
+            </div>
+          </div>
+          
+          <div className="language-selector">
+            <div 
+              className="language-dropdown-trigger" 
+              onClick={() => setShowDropdown(!showDropdown)}
+            >
+              <span className="globe-icon">🌐</span>
+              <span className="current-language">{currentLanguageLabel}</span>
+              <span className="dropdown-arrow">▼</span>
+            </div>
+            
+            {showDropdown && (
+              <div className="language-dropdown">
+                {languages.map(lang => (
+                  <div 
+                    key={lang.value} 
+                    className={`language-option ${language === lang.value ? 'selected' : ''}`}
+                    onClick={() => {
+                      onLanguageChange(lang.value);
+                      setShowDropdown(false);
+                    }}
+                  >
+                    {lang.label}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
+        
         {showProgress && (
           <div className="progress-container">
             <div className="progress-bar">
@@ -39,23 +67,13 @@ const Header = ({ currentQuestion, totalQuestions, showProgress = true, language
           </div>
         )}
       </div>
-      {showModal && (
-        <div style={{position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.5)', zIndex: 1000, display: 'flex', justifyContent: 'center', alignItems: 'center'}} onClick={() => setShowModal(false)}>
-          <div style={{background: 'white', padding: '20px', borderRadius: '12px', maxWidth: '90%', width: '300px'}} onClick={e => e.stopPropagation()}>
-            <h2 className="question-title" style={{textAlign: 'center'}}>{titleTexts[language] || titleTexts['en']}</h2>
-            <div className="radio-group">
-              {languages.map(lang => (
-                <div key={lang.value} className={`radio-option ${language === lang.value ? 'selected' : ''}`} onClick={() => {
-                  onLanguageChange(lang.value);
-                  setShowModal(false);
-                }}>
-                  <div className={`radio-input ${language === lang.value ? 'checked' : ''}`}></div>
-                  <span className="radio-text">{lang.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      
+      {/* Overlay to close dropdown when clicking outside */}
+      {showDropdown && (
+        <div 
+          className="dropdown-overlay" 
+          onClick={() => setShowDropdown(false)}
+        />
       )}
     </>
   );
