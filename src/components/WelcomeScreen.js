@@ -31,8 +31,17 @@ const WelcomeScreen = ({ onStart, language = 'ar' }) => {
   };
   const { title, subtitle, button } = texts[language] || texts['en'];
   return (
-    <div className="question-container" style={{textAlign: 'center'}}>
-      <img src="/8.svg" alt="Welcome illustration" style={{maxWidth: '100%', height: 'auto', marginBottom: '20px'}} />
+    <div className="question-container welcome-container" style={{textAlign: 'center'}}>
+      <img 
+        src="/1.svg" 
+        alt="Welcome illustration" 
+        style={{
+          maxWidth: '100%', 
+          height: 'auto', 
+          marginBottom: '20px',
+          maxHeight: '300px'
+        }} 
+      />
       <h2 className="question-title">{title}</h2>
       <p className="question-subtitle">{subtitle}</p>
       <button 

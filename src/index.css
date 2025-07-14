@@ -53,12 +53,19 @@ code {
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
   }
   
   .question-container {
     max-width: 800px;
-    margin: 15px auto;
+    margin: 10px auto;
+  }
+  
+  .welcome-container {
+    max-width: 600px;
+    margin: 5px auto;
+    padding: 20px;
+    min-height: auto;
   }
   
   /* Grid questions need full width */
@@ -70,11 +77,16 @@ code {
 /* Large desktop styles */
 @media (min-width: 1200px) {
   .container {
-    padding: 0 80px;
+    padding: 0 40px;
   }
   
   .question-container {
     max-width: 900px;
+  }
+  
+  .welcome-container {
+    max-width: 700px;
+    margin: 5px auto;
   }
   
   /* Grid questions need full width on large screens too */
@@ -96,13 +108,13 @@ code {
 /* Desktop header adjustments */
 @media (min-width: 768px) {
   .header {
-    padding: 20px 40px;
+    padding: 15px 20px;
   }
 }
 
 @media (min-width: 1200px) {
   .header {
-    padding: 20px 80px;
+    padding: 15px 40px;
   }
 }
 
@@ -136,12 +148,12 @@ code {
 @media (min-width: 768px) {
   .spotlight-header {
     max-width: 800px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 10px auto;
     padding: 0;
   }
   
   .spotlight-text {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -178,7 +190,7 @@ code {
 @media (min-width: 768px) {
   .progress-container {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 10px auto;
   }
   
   .progress-bar {
@@ -202,6 +214,11 @@ code {
   border-radius: 12px;
   min-height: 500px;
   justify-content: flex-start;
+}
+
+.welcome-container {
+  min-height: auto;
+  justify-content: center;
 }
 
 /* Ensure consistent spacing for all question types */
