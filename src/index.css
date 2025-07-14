@@ -127,17 +127,23 @@ code {
 }
 
 .header-content {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   margin-bottom: 10px;
   padding: 6px 0;
+  position: relative;
+}
+
+.header-left {
+  /* Empty spacer for centering */
 }
 
 .spotlight-header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  grid-column: 2;
 }
 
 .spotlight-text {
@@ -152,7 +158,9 @@ code {
 .language-selector {
   position: relative;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+  grid-column: 3;
 }
 
 .language-dropdown-trigger {
@@ -246,6 +254,7 @@ code {
     max-width: 800px;
     margin: 0 auto;
     padding: 0;
+    grid-template-columns: 1fr auto 1fr;
   }
   
   .spotlight-text {

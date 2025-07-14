@@ -20,12 +20,17 @@ const Header = ({ currentQuestion, totalQuestions, showProgress = true, language
     <>
       <div className="header">
         <div className="header-content">
+          {/* Left spacer for centering */}
+          <div className="header-left"></div>
+          
+          {/* Centered Spotlight */}
           <div className="spotlight-header">
             <div className="spotlight-text">
               <span>Spotlight</span>
             </div>
           </div>
           
+          {/* Right-positioned language selector */}
           <div className="language-selector">
             <div 
               className="language-dropdown-trigger" 
