@@ -24,7 +24,7 @@ const Header = ({ currentQuestion, totalQuestions, showProgress = true, language
           <div className="spotlight-text" style={{cursor: 'pointer'}} onClick={() => setShowModal(true)}>
             <span>Spotlight</span>
             <span className="dropdown-arrow">▼</span>
-            <span className="globe-icon">🌐</span>
+            <span className="globe-icon">🌍</span>
           </div>
         </div>
         {showProgress && (
