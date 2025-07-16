@@ -91,7 +91,6 @@ code {
   position: sticky;
   top: 0;
   z-index: 100;
-  border: 3px solid purple; /* DEBUG: This is the actual header container! */
 }
 
 /* Clean header styles */
@@ -222,6 +221,9 @@ code {
 @media (min-width: 768px) {
   .header {
     padding: 15px 0;
+    max-width: var(--container-max-width);
+    margin: var(--container-margin);
+    padding: 15px var(--container-padding);
   }
   
   .header-content {
@@ -229,7 +231,6 @@ code {
     margin: var(--container-margin);
     padding: 0 var(--container-padding);
     grid-template-columns: 1fr auto 1fr;
-    border: 3px solid blue; /* DEBUG: Verify header alignment */
   }
   
   .spotlight-text {
@@ -292,7 +293,6 @@ code {
     padding: 0 var(--container-padding);
     margin-top: 10px;
     margin-bottom: 0;
-    border: 3px solid orange; /* DEBUG: This should align with question container */
   }
   
   .progress-bar {
@@ -329,7 +329,6 @@ code {
     background: var(--container-background);
     border-radius: var(--container-border-radius);
     margin-top: 20px;
-    border: 3px solid red; /* DEBUG: Verify container alignment */
   }
 }
 
@@ -553,7 +552,6 @@ code {
     resize: vertical;
     outline: none;
     transition: border-color 0.2s ease;
-    border: 3px solid green; /* DEBUG: Verify text input width */
   }
 
 .text-input:focus {
