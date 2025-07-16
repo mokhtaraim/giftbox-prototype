@@ -14,6 +14,7 @@ const QuestionLayout = ({
 }) => {
   return (
     <div className="app">
+      <div className="test-variable">CSS VARIABLE TEST - Should be 1000px wide with pink background</div>
       <div className="container">
         <Header 
           currentQuestion={currentQuestion} 
