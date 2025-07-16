@@ -70,6 +70,8 @@ code {
     max-width: var(--container-max-width);
     margin: var(--container-margin);
     padding: 0;
+    border: 5px solid red !important;
+    background: yellow !important;
   }
   
 
