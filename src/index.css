@@ -91,6 +91,7 @@ code {
   position: sticky;
   top: 0;
   z-index: 100;
+  border: 3px solid purple; /* DEBUG: This is the actual header container! */
 }
 
 /* Clean header styles */
