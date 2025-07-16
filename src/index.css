@@ -8,6 +8,25 @@
   --container-background: white;
 }
 
+/* TEMPORARY DIAGNOSTIC - Force test our variables */
+.container {
+  max-width: var(--container-max-width) !important;
+  background: red !important;
+  margin: var(--container-margin) !important;
+}
+
+.header {
+  max-width: var(--container-max-width) !important;
+  background: blue !important;
+  margin: var(--container-margin) !important;
+}
+
+.unified-question-container {
+  max-width: var(--container-max-width) !important;
+  background: green !important;
+  margin: var(--container-margin) !important;
+}
+
 * {
   margin: 0;
   padding: 0;
