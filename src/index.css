@@ -57,12 +57,12 @@ code {
   flex-direction: column;
 }
 
-/* Desktop styles - consistent width layout */
+/* Desktop styles - no container padding for clean alignment */
 @media (min-width: 768px) {
   .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
   }
   
   /* Grid questions need full width within container */
@@ -74,7 +74,7 @@ code {
 /* Large desktop styles */
 @media (min-width: 1200px) {
   .container {
-    padding: 0 40px;
+    padding: 0;
   }
   
   /* Grid questions need full width on large screens too */
@@ -93,18 +93,14 @@ code {
   z-index: 100;
 }
 
-/* Desktop header adjustments */
+/* Desktop header override */
 @media (min-width: 768px) {
   .header {
-    padding: 15px 20px;
+    padding: 15px 0 !important;
   }
 }
 
-@media (min-width: 1200px) {
-  .header {
-    padding: 15px 40px;
-  }
-}
+/* Removed conflicting header rules - using the ones in Desktop header improvements section */
 
 .header-content {
   display: grid;
@@ -323,17 +319,18 @@ code {
   overflow: hidden;
 }
 
-/* Desktop override for question container - matches header exactly */
+/* Desktop override for question container - matches header-content and progress-container exactly */
 @media (min-width: 768px) {
   .question-container {
-    margin: 20px auto !important;
     max-width: 800px !important;
-    width: 100% !important;
+    margin: 20px auto !important;
+    padding: 0 40px !important;
     height: 70vh !important;
     min-height: 70vh !important;
     max-height: 70vh !important;
     background: white !important;
     border-radius: 12px !important;
+    box-sizing: border-box !important;
   }
 }
 
@@ -349,10 +346,10 @@ code {
   max-height: calc(100% - 80px);
 }
 
-/* Desktop override for question content - matches header padding */
+/* Desktop override for question content - no extra horizontal padding since container has 40px */
 @media (min-width: 768px) {
   .question-content {
-    padding: 30px 40px 20px !important;
+    padding: 30px 0 20px !important;
     max-height: calc(100% - 80px) !important;
   }
 }
@@ -638,10 +635,10 @@ code {
   min-height: 80px;
 }
 
-/* Desktop navigation */
+/* Desktop navigation - no extra horizontal padding since container has 40px */
 @media (min-width: 768px) {
   .navigation {
-    padding: 20px 40px !important;
+    padding: 20px 0 !important;
     height: 80px !important;
     min-height: 80px !important;
   }
