@@ -461,7 +461,7 @@ code {
   .radio-group,
   .checkbox-group,
   .scale-group {
-    max-width: 600px;
+    width: 100%;
     margin: 0 auto auto auto;
   }
   
@@ -563,7 +563,7 @@ code {
 @media (min-width: 768px) {
   .text-input-container,
   .multi-text-container {
-    max-width: 700px;
+    width: 100%;
     margin: 0 auto auto auto;
   }
   
@@ -575,13 +575,13 @@ code {
   }
   
   .slider-container {
-    max-width: 500px;
+    width: 100%;
     margin: 0 auto auto auto;
     padding: 30px 0;
   }
   
   .ranking-container {
-    max-width: 600px;
+    width: 100%;
     margin: 0 auto auto auto;
   }
   
@@ -697,7 +697,7 @@ code {
   .nps-scale {
     justify-content: center;
     gap: 12px;
-    max-width: 600px;
+    width: 100%;
     margin: 0 auto 20px auto;
   }
   
