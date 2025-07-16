@@ -863,12 +863,13 @@ code {
 .grid-table {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
   overflow: hidden;
   width: 100%;
   min-width: 600px;
   margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 /* Desktop grid improvements */
@@ -884,12 +885,15 @@ code {
   }
   
   .grid-cell {
-    padding: 20px 16px;
+    padding: 24px 20px;
     font-size: 16px;
+    min-height: 70px;
   }
   
   .grid-cell-row-header {
     min-width: 200px;
+    padding-right: 32px;
+    padding-left: 20px;
   }
   
   .grid-cell-header {
@@ -908,23 +912,31 @@ code {
 }
 
 .grid-cell {
-  padding: 16px 12px;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  padding: 18px 16px;
+  border-left: 1px solid #e0e0e0;
   text-align: center;
   font-size: 15px;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
+  min-height: 60px;
+  position: relative;
 }
 
-.grid-cell:last-child {
-  border-right: none;
+.grid-cell:first-child {
+  border-left: none;
 }
 
-.grid-row:last-child .grid-cell {
+.grid-header {
+  border-bottom: 2px solid #ddd;
+}
+
+.grid-row {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.grid-row:last-child {
   border-bottom: none;
 }
 
@@ -935,22 +947,25 @@ code {
 }
 
 .grid-cell-header {
-  background: #f8f9fa;
+  background: #f1f3f4;
   font-weight: 600;
   flex: 2;
   min-width: 100px;
   color: #333;
+  border-bottom: 1px solid #d0d0d0;
 }
 
 .grid-cell-row-header {
-  background: #f8f9fa;
+  background: #f1f3f4;
   font-weight: 600;
-  text-align: right;
   flex: 3;
   min-width: 150px;
-  padding-right: 20px;
-  justify-content: flex-end;
   color: #333;
+  text-align: right;
+  justify-content: flex-end;
+  padding-right: 24px;
+  padding-left: 16px;
+  border-left: 1px solid #d0d0d0;
 }
 
 .grid-cell-data {
