@@ -3,7 +3,7 @@
   --container-max-width: 800px;
   --container-padding: 40px;
   --container-height: 70vh;
-  --container-margin: 20px auto;
+  --container-margin: 0 auto;
   --container-border-radius: 12px;
   --container-background: white;
 }
@@ -224,9 +224,9 @@ code {
   }
   
   .header-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 40px;
+    max-width: var(--container-max-width);
+    margin: var(--container-margin);
+    padding: 0 var(--container-padding);
     grid-template-columns: 1fr auto 1fr;
   }
   
@@ -285,9 +285,11 @@ code {
 /* Desktop progress bar improvements - consistent width */
 @media (min-width: 768px) {
   .progress-container {
-    max-width: 800px;
-    margin: 10px auto;
-    padding: 0 40px;
+    max-width: var(--container-max-width);
+    margin: var(--container-margin);
+    padding: 0 var(--container-padding);
+    margin-top: 10px;
+    margin-bottom: 0;
   }
   
   .progress-bar {
@@ -309,6 +311,7 @@ code {
   border-radius: var(--container-border-radius);
   min-height: 500px;
   overflow: hidden;
+  margin-top: 20px;
 }
 
 /* Desktop: uses CSS custom properties for maintainable layout */
@@ -322,7 +325,7 @@ code {
     max-height: var(--container-height);
     background: var(--container-background);
     border-radius: var(--container-border-radius);
-
+    margin-top: 20px;
   }
 }
 
