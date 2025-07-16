@@ -29,46 +29,31 @@ const WelcomeScreen = ({ onStart, language = 'ar' }) => {
       button: 'Empezar'
     }
   };
+  
   const { title, subtitle, button } = texts[language] || texts['en'];
+  
   return (
-    <div className="question-container welcome-container" style={{textAlign: 'center'}}>
-      <img 
-        src="/1.svg" 
-        alt="Welcome illustration" 
-        style={{
-          maxWidth: '100%', 
-          height: 'auto', 
-          marginBottom: '20px',
-          maxHeight: '300px'
-        }} 
-      />
-      <h2 className="question-title">{title}</h2>
-      <p className="question-subtitle">{subtitle}</p>
-      <button 
-        className="welcome-start-button" 
-        onClick={onStart}
-        style={{
-          background: '#6c757d',
-          color: 'white',
-          border: 'none',
-          borderRadius: '12px',
-          padding: '15px 30px',
-          fontSize: '16px',
-          fontWeight: '600',
-          cursor: 'pointer',
-          fontFamily: 'Cairo, sans-serif',
-          margin: '30px auto 0',
-          display: 'block',
-          maxWidth: '200px',
-          width: '100%',
-          transition: 'background 0.2s ease'
-        }}
-        onMouseOver={(e) => e.target.style.background = '#5a6268'}
-        onMouseOut={(e) => e.target.style.background = '#6c757d'}
-      >
-        {button}
-      </button>
-    </div>
+    <section className="welcome-section">
+      <div className="welcome-card">
+        <img 
+          src="/1.svg" 
+          alt="Welcome illustration" 
+          className="welcome-image"
+        />
+        
+        <div className="welcome-divider"></div>
+        
+        <h1 className="welcome-title">{title}</h1>
+        <p className="welcome-body">{subtitle}</p>
+        
+        <button 
+          className="welcome-btn" 
+          onClick={onStart}
+        >
+          {button}
+        </button>
+      </div>
+    </section>
   );
 };
 

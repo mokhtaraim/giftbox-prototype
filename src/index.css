@@ -1,3 +1,7 @@
+:root {
+  --nav-height: 80px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -61,16 +65,7 @@ code {
     margin: 10px auto;
   }
   
-  .welcome-container {
-    max-width: 600px;
-    margin: 5px auto !important;
-    padding: 20px;
-    min-height: auto;
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+
   
   /* Grid questions need full width */
   .grid-container {
@@ -88,14 +83,7 @@ code {
     max-width: 900px;
   }
   
-  .welcome-container {
-    max-width: 700px;
-    margin: 5px auto !important;
-    display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+
   
   /* Grid questions need full width on large screens too */
   .grid-container {
@@ -339,13 +327,7 @@ code {
   justify-content: flex-start;
 }
 
-.welcome-container {
-  min-height: auto;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 15px auto !important;
-}
+
 
 /* Ensure consistent spacing for all question types */
 .radio-group,
@@ -1178,33 +1160,79 @@ code {
   background: #3d7bd6;
 }
 
-/* Welcome screen start button */
-.welcome-start-button {
-  background: #6c757d;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 15px 30px;
-  fontSize: 16px;
+/* Welcome screen - Mobile first design to match Figma mockup */
+.welcome-section {
+  min-height: calc(100vh - var(--nav-height, 80px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  direction: rtl;
+}
+
+.welcome-card {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome-image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin-inline: auto;
+}
+
+.welcome-divider {
+  width: 100%;
+  height: 1px;
+  background: #1C1C20;
+  margin-block: 24px;
+}
+
+.welcome-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.welcome-body {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  color: #666;
+}
+
+.welcome-btn {
+  width: 100%;
+  max-width: 350px;
+  padding: 14px 0;
+  border-radius: 6px;
+  background: #2B3444;
+  color: #fff;
+  font-size: 16px;
   font-weight: 600;
+  border: none;
   cursor: pointer;
   font-family: 'Cairo', sans-serif;
-  margin: 30px auto 0;
-  display: block;
-  max-width: 200px;
-  width: 100%;
   transition: background 0.2s ease;
 }
 
-.welcome-start-button:hover {
-  background: #5a6268;
+.welcome-btn:hover {
+  background: #1f2631;
 }
 
-/* Mobile optimization for welcome button */
-@media (max-width: 767px) {
-  .welcome-start-button {
-    max-width: 180px;
-    padding: 12px 24px;
-    font-size: 15px;
+/* Desktop responsive improvements */
+@media (min-width: 768px) {
+  .welcome-title {
+    font-size: 26px;
+  }
+  
+  .welcome-body {
+    font-size: 16px;
   }
 } 
