@@ -8,12 +8,7 @@
   --container-background: white;
 }
 
-/* TEST CSS VARIABLES */
-.test-variable {
-  width: var(--container-max-width);
-  border: 2px solid blue;
-  background: pink;
-}
+
 
 
 * {
@@ -76,8 +71,6 @@ code {
     max-width: var(--container-max-width);
     margin: var(--container-margin);
     padding: 0;
-    border: 5px solid red !important;
-    background: yellow !important;
   }
   
 
@@ -226,11 +219,9 @@ code {
   z-index: 999;
 }
 
-/* Desktop header improvements - consistent width */
+/* Desktop header improvements - full width */
 @media (min-width: 768px) {
   .header {
-    max-width: var(--container-max-width);
-    margin: var(--container-margin);
     padding: 15px var(--container-padding);
   }
   
@@ -290,11 +281,9 @@ code {
   float: right;
 }
 
-/* Desktop progress bar improvements - consistent width */
+/* Desktop progress bar improvements - full width */
 @media (min-width: 768px) {
   .progress-container {
-    max-width: var(--container-max-width);
-    margin: var(--container-margin);
     padding: 0 var(--container-padding);
     margin-top: 10px;
     margin-bottom: 0;
@@ -322,11 +311,9 @@ code {
   margin-top: 20px;
 }
 
-/* Desktop: uses CSS custom properties for maintainable layout */
+/* Desktop: full width question container */
 @media (min-width: 768px) {
   .unified-question-container {
-    max-width: var(--container-max-width);
-    margin: var(--container-margin);
     padding: 0;
     height: var(--container-height);
     min-height: var(--container-height);
