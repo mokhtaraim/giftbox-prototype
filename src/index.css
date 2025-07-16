@@ -856,6 +856,8 @@ code {
 /* Grid Question */
 .grid-container {
   overflow-x: auto;
+  width: 100%;
+  margin-bottom: auto;
 }
 
 .grid-table {
@@ -865,36 +867,57 @@ code {
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
-  min-width: 100%;
+  min-width: 600px;
+  margin: 0 auto;
 }
 
 /* Desktop grid improvements */
 @media (min-width: 768px) {
+  .grid-container {
+    max-width: none;
+  }
   
   .grid-table {
     width: 100%;
-    min-width: 100%;
+    min-width: 700px;
+    max-width: 900px;
   }
   
   .grid-cell {
-    padding: 16px 12px;
+    padding: 20px 16px;
     font-size: 16px;
   }
   
-
+  .grid-cell-row-header {
+    min-width: 200px;
+  }
+  
+  .grid-cell-header {
+    min-width: 120px;
+  }
+  
+  .grid-cell-data {
+    min-width: 120px;
+  }
 }
 
 .grid-header, .grid-row {
   display: flex;
+  min-height: 50px;
+  align-items: center;
 }
 
 .grid-cell {
-  padding: 12px 8px;
+  padding: 16px 12px;
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   text-align: center;
-  font-size: 14px;
+  font-size: 15px;
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
 }
 
 .grid-cell:last-child {
@@ -907,25 +930,33 @@ code {
 
 .grid-cell-empty {
   background: #f8f9fa;
-  flex: 2;
+  flex: 3;
+  min-width: 150px;
 }
 
 .grid-cell-header {
   background: #f8f9fa;
-  font-weight: 500;
-  flex: 1;
+  font-weight: 600;
+  flex: 2;
+  min-width: 100px;
+  color: #333;
 }
 
 .grid-cell-row-header {
   background: #f8f9fa;
-  font-weight: 500;
+  font-weight: 600;
   text-align: right;
-  flex: 2;
+  flex: 3;
+  min-width: 150px;
+  padding-right: 20px;
+  justify-content: flex-end;
+  color: #333;
 }
 
 .grid-cell-data {
   cursor: pointer;
-  flex: 1;
+  flex: 2;
+  min-width: 100px;
   transition: background 0.2s ease;
 }
 
