@@ -10,14 +10,6 @@ const Navigation = ({
   return (
     <div className="navigation">
       <button 
-        className="nav-button back"
-        onClick={onPrevious}
-        disabled={currentQuestion === 1}
-      >
-        ⬆️
-      </button>
-      
-      <button 
         className="nav-button next"
         onClick={onNext}
         disabled={!canProceed}
