@@ -48,7 +48,7 @@ export const surveyQuestions = [
     type: 'multi-text',
     question: 'ما هي المميزات التي تود رؤيتها في خدمات فودافون مستقبلاً؟',
     subtitle: '(يمكنك كتابة أكثر من إجابة)',
-    placeholder: 'اكتب إجابتك هنا ...'
+        placeholder: 'اكتب إجابتك هنا ...'
   },
   {
     id: 6,
