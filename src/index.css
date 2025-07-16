@@ -57,7 +57,7 @@ code {
   flex-direction: column;
 }
 
-/* Desktop styles - no container padding for clean alignment */
+/* Desktop styles - clean container, no padding conflicts */
 @media (min-width: 768px) {
   .container {
     max-width: 1200px;
@@ -93,14 +93,7 @@ code {
   z-index: 100;
 }
 
-/* Desktop header override */
-@media (min-width: 768px) {
-  .header {
-    padding: 15px 0 !important;
-  }
-}
-
-/* Removed conflicting header rules - using the ones in Desktop header improvements section */
+/* Clean header styles */
 
 .header-content {
   display: grid;
@@ -307,7 +300,7 @@ code {
   }
 }
 
-/* Question container with fixed height and scrolling */
+/* Clean question container - matches header-content structure exactly */
 .question-container {
   display: flex;
   flex-direction: column;
@@ -315,22 +308,27 @@ code {
   margin: 15px;
   border-radius: 12px;
   min-height: 500px;
-  max-height: calc(100vh - 200px);
   overflow: hidden;
 }
 
-/* Desktop override for question container - matches header-content and progress-container exactly */
+/* Desktop: exactly match header-content structure 
+   Clean architecture:
+   - Container: no padding, just centers content
+   - Question-container: 800px + 40px padding (like header-content)
+   - Question-content: no horizontal padding (parent provides it)
+   - Navigation: no horizontal padding (parent provides it)
+*/
 @media (min-width: 768px) {
   .question-container {
-    max-width: 800px !important;
-    margin: 20px auto !important;
-    padding: 0 40px !important;
-    height: 70vh !important;
-    min-height: 70vh !important;
-    max-height: 70vh !important;
-    background: white !important;
-    border-radius: 12px !important;
-    box-sizing: border-box !important;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 40px;
+    height: 70vh;
+    min-height: 70vh;
+    max-height: 70vh;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid blue; /* TEMP: verify alignment */
   }
 }
 
@@ -343,14 +341,13 @@ code {
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  max-height: calc(100% - 80px);
 }
 
-/* Desktop override for question content - no extra horizontal padding since container has 40px */
+/* Desktop: no horizontal padding since container provides it */
 @media (min-width: 768px) {
   .question-content {
-    padding: 30px 0 20px !important;
-    max-height: calc(100% - 80px) !important;
+    padding: 30px 0 20px;
+    max-height: calc(100% - 80px);
   }
 }
 
@@ -366,7 +363,6 @@ code {
 .slider-container,
 .ranking-container {
   width: 100%;
-  max-width: 600px;
   margin-bottom: auto;
 }
 
@@ -635,16 +631,16 @@ code {
   min-height: 80px;
 }
 
-/* Desktop navigation - no extra horizontal padding since container has 40px */
+/* Desktop navigation: no horizontal padding since container provides it */
 @media (min-width: 768px) {
   .navigation {
-    padding: 20px 0 !important;
-    height: 80px !important;
-    min-height: 80px !important;
+    padding: 20px 0;
+    height: 80px;
+    min-height: 80px;
   }
 }
 
-/* Removed duplicate navigation styles - using the ones above */
+/* Clean navigation styles complete */
 
 .nav-button {
   padding: 12px 24px;
