@@ -323,18 +323,17 @@ code {
   overflow: hidden;
 }
 
-/* Desktop override for question container - FORCE REFRESH v2.0 */
+/* Desktop override for question container - matches header exactly */
 @media (min-width: 768px) {
   .question-container {
     margin: 20px auto !important;
     max-width: 800px !important;
-    width: calc(100% - 40px) !important;
+    width: 100% !important;
     height: 70vh !important;
     min-height: 70vh !important;
     max-height: 70vh !important;
     background: white !important;
     border-radius: 12px !important;
-    border: 3px solid red !important; /* TEMP DEBUG - remove after testing */
   }
 }
 
@@ -350,7 +349,7 @@ code {
   max-height: calc(100% - 80px);
 }
 
-/* Desktop override for question content */
+/* Desktop override for question content - matches header padding */
 @media (min-width: 768px) {
   .question-content {
     padding: 30px 40px 20px !important;
