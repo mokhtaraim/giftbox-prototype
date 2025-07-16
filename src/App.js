@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 import { surveyQuestions } from './data/questions';
 import Header from './components/Header';
+import QuestionLayout from './components/QuestionLayout';
+import WelcomeLayout from './components/WelcomeLayout';
 import RadioQuestion from './components/RadioQuestion';
 import CheckboxQuestion from './components/CheckboxQuestion';
 import TextQuestion from './components/TextQuestion';
@@ -11,7 +13,6 @@ import MultiTextQuestion from './components/MultiTextQuestion';
 import GridQuestion from './components/GridQuestion';
 import SliderQuestion from './components/SliderQuestion';
 import RankingQuestion from './components/RankingQuestion';
-import Navigation from './components/Navigation';
 import CompletionScreen from './components/CompletionScreen';
 import WelcomeScreen from './components/WelcomeScreen';
 
@@ -170,64 +171,44 @@ function App() {
 
   if (!isStarted) {
     return (
-      <div className="app">
-        <div className="container">
-          <Header 
-            currentQuestion={0} 
-            totalQuestions={surveyQuestions.length}
-            showProgress={false}
-            language={language}
-            onLanguageChange={setLanguage}
-          />
-          <WelcomeScreen onStart={() => setIsStarted(true)} language={language} />
-        </div>
-      </div>
+      <WelcomeLayout
+        currentQuestion={0}
+        totalQuestions={surveyQuestions.length}
+        showProgress={false}
+        language={language}
+        onLanguageChange={setLanguage}
+      >
+        <WelcomeScreen onStart={() => setIsStarted(true)} language={language} />
+      </WelcomeLayout>
     );
   }
 
   if (isCompleted) {
     return (
-      <div className="app">
-        <div className="container">
-          <Header 
-            currentQuestion={surveyQuestions.length} 
-            totalQuestions={surveyQuestions.length} 
-            showProgress={true}
-            language={language}
-            onLanguageChange={setLanguage}
-          />
-          <CompletionScreen onRestart={handleRestart} />
-        </div>
-      </div>
+      <WelcomeLayout
+        currentQuestion={surveyQuestions.length}
+        totalQuestions={surveyQuestions.length}
+        showProgress={true}
+        language={language}
+        onLanguageChange={setLanguage}
+      >
+        <CompletionScreen onRestart={handleRestart} />
+      </WelcomeLayout>
     );
   }
 
   return (
-    <div className="app">
-      <div className="container">
-        <Header 
-          currentQuestion={currentQuestionIndex + 1} 
-          totalQuestions={surveyQuestions.length}
-          showProgress={true}
-          language={language}
-          onLanguageChange={setLanguage}
-        />
-        
-        <div className="question-container">
-          <div className="question-content">
-            {renderQuestion()}
-          </div>
-          
-          <Navigation
-            currentQuestion={currentQuestionIndex + 1}
-            totalQuestions={surveyQuestions.length}
-            onPrevious={handlePrevious}
-            onNext={handleNext}
-            canProceed={canProceed()}
-          />
-        </div>
-      </div>
-    </div>
+    <QuestionLayout
+      currentQuestion={currentQuestionIndex + 1}
+      totalQuestions={surveyQuestions.length}
+      language={language}
+      onLanguageChange={setLanguage}
+      onPrevious={handlePrevious}
+      onNext={handleNext}
+      canProceed={canProceed()}
+    >
+      {renderQuestion()}
+    </QuestionLayout>
   );
 }
 
