@@ -26,10 +26,12 @@ body {
   .question-container {
     margin: 10px;
     min-height: 450px;
+    max-height: calc(100vh - 150px);
   }
   
   .question-content {
-    padding: 25px 15px 15px;
+    padding: 25px 20px 15px;
+    max-height: calc(100% - 60px);
   }
 }
 
@@ -65,10 +67,11 @@ code {
   
   .question-container {
     max-width: 800px;
-    margin: 10px auto;
-    height: 70vh; /* Fixed height for consistency */
+    margin: 20px auto;
+    height: 70vh;
     min-height: 70vh;
     max-height: 70vh;
+    width: 100%;
   }
   
   /* Grid questions need full width within container */
@@ -84,10 +87,12 @@ code {
   }
   
   .question-container {
-    max-width: 800px; /* Keep consistent with header */
+    max-width: 800px;
+    margin: 20px auto;
     height: 70vh;
     min-height: 70vh;
     max-height: 70vh;
+    width: 100%;
   }
   
   /* Grid questions need full width on large screens too */
@@ -326,27 +331,26 @@ code {
 
 /* Question container with fixed height and scrolling */
 .question-container {
-  flex: 1;
   display: flex;
   flex-direction: column;
   background: white;
   margin: 15px;
   border-radius: 12px;
   min-height: 500px;
-  justify-content: flex-start;
-  /* Fixed height will be applied by media queries */
+  max-height: calc(100vh - 200px);
+  overflow: hidden;
 }
 
 .question-content {
   flex: 1;
-  padding: 30px 20px 40px;
+  padding: 30px 40px 20px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  margin-bottom: 10px;
+  max-height: calc(100% - 80px);
 }
 
 
@@ -617,18 +621,17 @@ code {
 
 /* Navigation - sticky at bottom of container */
 .navigation {
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #f8f9fa;
   gap: 20px;
-  margin-top: auto;
   border-top: 1px solid #e9ecef;
   border-radius: 0 0 12px 12px;
-  position: relative;
-  z-index: 10;
   flex-shrink: 0;
+  height: 80px;
+  min-height: 80px;
 }
 
 /* Desktop navigation adjustments */
