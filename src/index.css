@@ -66,8 +66,8 @@ code {
 /* Desktop styles - clean container, no padding conflicts */
 @media (min-width: 768px) {
   .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: var(--container-max-width);
+    margin: var(--container-margin);
     padding: 0;
   }
   
