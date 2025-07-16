@@ -21,7 +21,7 @@ const MultiTextQuestion = ({ question, answer, onAnswerChange }) => {
   };
 
   return (
-    <div className="question-container">
+    <>
       <h2 className="question-title">{question.question}</h2>
       {question.subtitle && (
         <p className="question-subtitle">{question.subtitle}</p>
@@ -56,7 +56,7 @@ const MultiTextQuestion = ({ question, answer, onAnswerChange }) => {
           + إضافة إجابة أخرى
         </button>
       </div>
-    </div>
+    </>
   );
 };
 

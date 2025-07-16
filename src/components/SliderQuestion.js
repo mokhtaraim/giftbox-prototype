@@ -4,7 +4,7 @@ const SliderQuestion = ({ question, selectedAnswer, onAnswerChange }) => {
   const value = selectedAnswer !== undefined ? selectedAnswer : Math.floor((question.scale.min + question.scale.max) / 2);
 
   return (
-    <div className="question-container">
+    <>
       <h2 className="question-title">{question.question}</h2>
       {question.subtitle && (
         <p className="question-subtitle">{question.subtitle}</p>
@@ -29,7 +29,7 @@ const SliderQuestion = ({ question, selectedAnswer, onAnswerChange }) => {
           <span className="current-value">{value}</span>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

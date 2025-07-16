@@ -12,7 +12,7 @@ const GridQuestion = ({ question, selectedAnswers, onAnswerChange }) => {
   };
 
   return (
-    <div className="question-container">
+    <>
       <h2 className="question-title">{question.question}</h2>
       {question.subtitle && (
         <p className="question-subtitle">{question.subtitle}</p>
@@ -49,7 +49,7 @@ const GridQuestion = ({ question, selectedAnswers, onAnswerChange }) => {
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

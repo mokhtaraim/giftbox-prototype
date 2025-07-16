@@ -4,7 +4,7 @@ const NPSQuestion = ({ question, selectedAnswer, onAnswerChange }) => {
   const numbers = Array.from({ length: 11 }, (_, i) => i);
 
   return (
-    <div className="question-container">
+    <>
       <h2 className="question-title">{question.question}</h2>
       {question.subtitle && (
         <p className="question-subtitle">{question.subtitle}</p>
@@ -27,7 +27,7 @@ const NPSQuestion = ({ question, selectedAnswer, onAnswerChange }) => {
           <span className="nps-label-right">محتمل جدًا</span>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

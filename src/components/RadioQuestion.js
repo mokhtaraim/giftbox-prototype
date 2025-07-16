@@ -2,7 +2,7 @@ import React from 'react';
 
 const RadioQuestion = ({ question, selectedAnswer, onAnswerChange }) => {
   return (
-    <div className="question-container">
+    <>
       <h2 className="question-title">{question.question}</h2>
       {question.subtitle && (
         <p className="question-subtitle">{question.subtitle}</p>
@@ -20,7 +20,7 @@ const RadioQuestion = ({ question, selectedAnswer, onAnswerChange }) => {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

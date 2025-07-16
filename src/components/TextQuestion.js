@@ -2,7 +2,7 @@ import React from 'react';
 
 const TextQuestion = ({ question, answer, onAnswerChange }) => {
   return (
-    <div className="question-container">
+    <>
       <h2 className="question-title">{question.question}</h2>
       {question.subtitle && (
         <p className="question-subtitle">{question.subtitle}</p>
@@ -16,7 +16,7 @@ const TextQuestion = ({ question, answer, onAnswerChange }) => {
           onChange={(e) => onAnswerChange(e.target.value)}
         />
       </div>
-    </div>
+    </>
   );
 };
 

@@ -40,7 +40,7 @@ const RankingQuestion = ({ question, selectedAnswers, onAnswerChange }) => {
   };
 
   return (
-    <div className="question-container">
+    <>
       <h2 className="question-title">{question.question}</h2>
       {question.subtitle && (
         <p className="question-subtitle">{question.subtitle}</p>
@@ -67,7 +67,7 @@ const RankingQuestion = ({ question, selectedAnswers, onAnswerChange }) => {
       <div className="ranking-help">
         <p className="help-text">اسحب العناصر لإعادة ترتيبها - 1 = الأهم، {question.options.length} = الأقل أهمية</p>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -213,15 +213,19 @@ function App() {
           onLanguageChange={setLanguage}
         />
         
-        {renderQuestion()}
-        
-        <Navigation
-          currentQuestion={currentQuestionIndex + 1}
-          totalQuestions={surveyQuestions.length}
-          onPrevious={handlePrevious}
-          onNext={handleNext}
-          canProceed={canProceed()}
-        />
+        <div className="question-container">
+          <div className="question-content">
+            {renderQuestion()}
+          </div>
+          
+          <Navigation
+            currentQuestion={currentQuestionIndex + 1}
+            totalQuestions={surveyQuestions.length}
+            onPrevious={handlePrevious}
+            onNext={handleNext}
+            canProceed={canProceed()}
+          />
+        </div>
       </div>
     </div>
   );
