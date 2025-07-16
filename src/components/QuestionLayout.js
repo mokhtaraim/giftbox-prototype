@@ -23,7 +23,7 @@ const QuestionLayout = ({
           onLanguageChange={onLanguageChange}
         />
         
-        <div className="question-container">
+        <div className="unified-question-container">
           <div className="question-content">
             {children}
           </div>

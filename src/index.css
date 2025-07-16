@@ -1,5 +1,11 @@
 :root {
   --nav-height: 80px;
+  --container-max-width: 800px;
+  --container-padding: 40px;
+  --container-height: 70vh;
+  --container-margin: 20px auto;
+  --container-border-radius: 12px;
+  --container-background: white;
 }
 
 * {
@@ -23,7 +29,7 @@ body {
 
 /* Mobile optimization */
 @media (max-width: 767px) {
-  .question-container {
+  .unified-question-container {
     margin: 10px;
     min-height: 450px;
     max-height: calc(100vh - 150px);
@@ -65,10 +71,7 @@ code {
     padding: 0;
   }
   
-  /* Grid questions need full width within container */
-  .grid-container {
-    max-width: 100% !important;
-  }
+
 }
 
 /* Large desktop styles */
@@ -77,10 +80,7 @@ code {
     padding: 0;
   }
   
-  /* Grid questions need full width on large screens too */
-  .grid-container {
-    max-width: 100% !important;
-  }
+
 }
 
 /* Header */
@@ -300,35 +300,29 @@ code {
   }
 }
 
-/* Clean question container - matches header-content structure exactly */
-.question-container {
+/* UNIFIED LAYOUT SYSTEM - Single source of truth for all question containers */
+.unified-question-container {
   display: flex;
   flex-direction: column;
-  background: white;
+  background: var(--container-background);
   margin: 15px;
-  border-radius: 12px;
+  border-radius: var(--container-border-radius);
   min-height: 500px;
   overflow: hidden;
 }
 
-/* Desktop: exactly match header-content structure 
-   Clean architecture:
-   - Container: no padding, just centers content
-   - Question-container: 800px + 40px padding (like header-content)
-   - Question-content: no horizontal padding (parent provides it)
-   - Navigation: no horizontal padding (parent provides it)
-*/
+/* Desktop: uses CSS custom properties for maintainable layout */
 @media (min-width: 768px) {
-  .question-container {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 0 40px;
-    height: 70vh;
-    min-height: 70vh;
-    max-height: 70vh;
-    background: white;
-    border-radius: 12px;
-    border: 2px solid blue; /* TEMP: verify alignment */
+  .unified-question-container {
+    max-width: var(--container-max-width);
+    margin: var(--container-margin);
+    padding: 0 var(--container-padding);
+    height: var(--container-height);
+    min-height: var(--container-height);
+    max-height: var(--container-height);
+    background: var(--container-background);
+    border-radius: var(--container-border-radius);
+
   }
 }
 
@@ -366,12 +360,7 @@ code {
   margin-bottom: auto;
 }
 
-/* Grid container needs full width but centered */
-.grid-container {
-  width: 100%;
-  margin-bottom: auto;
-  max-width: 100%;
-}
+
 
 .question-title {
   font-size: 18px;
@@ -868,7 +857,6 @@ code {
 
 /* Grid Question */
 .grid-container {
-  margin-bottom: auto;
   overflow-x: auto;
 }
 
@@ -884,9 +872,6 @@ code {
 
 /* Desktop grid improvements */
 @media (min-width: 768px) {
-  .grid-container {
-    max-width: 100%;
-  }
   
   .grid-table {
     width: 100%;
