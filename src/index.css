@@ -291,6 +291,7 @@ code {
     padding: 0 var(--container-padding);
     margin-top: 10px;
     margin-bottom: 0;
+    border: 3px solid orange; /* DEBUG: This should align with question container */
   }
   
   .progress-bar {
