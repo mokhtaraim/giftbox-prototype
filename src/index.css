@@ -393,6 +393,9 @@ code {
     margin-bottom: 40px;
     text-align: right;
     width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.6;
   }
 }
 
@@ -522,19 +525,33 @@ code {
   }
   
   .radio-group.image-focused {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 100%;
   }
   
   .radio-option.image-focused {
-    padding: 25px;
-    min-height: 220px;
+    padding: 30px;
+    min-height: 240px;
+    max-width: 100%;
+    word-wrap: break-word;
   }
   
   .option-image-large {
-    width: 150px;
-    height: 100px;
-    margin-bottom: 20px;
+    width: 160px;
+    height: 110px;
+    margin-bottom: 25px;
+  }
+  
+  .option-content {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .radio-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
   }
   .radio-group,
   .checkbox-group,
