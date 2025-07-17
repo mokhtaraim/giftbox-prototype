@@ -573,6 +573,49 @@ code {
   }
 }
 
+/* Other text input styles */
+.other-text-input-container {
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-right: 10px;
+}
+
+.other-text-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Cairo', sans-serif;
+  background: white;
+  transition: border-color 0.2s ease;
+  direction: rtl;
+  text-align: right;
+}
+
+.other-text-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.other-text-input::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+@media (max-width: 767px) {
+  .other-text-input-container {
+    margin-left: 30px;
+    margin-right: 5px;
+  }
+  
+  .other-text-input {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
 /* Checkbox styles */
 .checkbox-group {
   display: flex;

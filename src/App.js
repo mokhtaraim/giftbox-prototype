@@ -40,6 +40,23 @@ function App() {
     return true; // Allow proceeding without answering
   };
 
+  // Handle answer validation for questions with "other" option
+  const isAnswerComplete = (answer, question) => {
+    if (!answer) return false;
+    
+    // For questions with "other" option
+    if (question.hasOtherOption && typeof answer === 'object') {
+      const lastOptionIndex = question.options.length - 1;
+      // If "other" is selected, check if text is provided
+      if (answer.optionIndex === lastOptionIndex) {
+        return answer.otherText && answer.otherText.trim().length > 0;
+      }
+      return true; // Other options selected
+    }
+    
+    return true; // Regular questions
+  };
+
   // Handle answer changes
   const handleAnswerChange = (answer) => {
     setAnswers(prev => ({
