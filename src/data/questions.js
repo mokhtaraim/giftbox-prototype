@@ -59,10 +59,10 @@ export const surveyQuestions = [
       'أورنج'
     ],
     images: [
-      './images/logos/vodafone.svg',
-      './images/logos/etisalat.svg',
-      './images/logos/we.svg',
-      './images/logos/orange.svg'
+      '/images/logos/vodafone.svg',
+      '/images/logos/etisalat.svg',
+      '/images/logos/we.svg',
+      '/images/logos/orange.svg'
     ]
   },
   {
@@ -77,10 +77,10 @@ export const surveyQuestions = [
       'أورنج'
     ],
     images: [
-      './images/logos/vodafone.svg',
-      './images/logos/etisalat.svg',
-      './images/logos/we.svg',
-      './images/logos/orange.svg'
+      '/images/logos/vodafone.svg',
+      '/images/logos/etisalat.svg',
+      '/images/logos/we.svg',
+      '/images/logos/orange.svg'
     ]
   },
   {

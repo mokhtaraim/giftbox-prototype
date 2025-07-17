@@ -457,8 +457,33 @@ code {
   line-height: 1.4;
 }
 
+/* Image support for radio and checkbox options */
+.radio-option.with-image,
+.checkbox-option.with-image {
+  padding: 12px 15px;
+}
+
+.option-image {
+  width: 60px;
+  height: 30px;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+.option-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
 /* Desktop radio/checkbox improvements */
 @media (min-width: 768px) {
+  .option-image {
+    width: 80px;
+    height: 40px;
+    margin-left: 15px;
+  }
   .radio-group,
   .checkbox-group,
   .scale-group {
