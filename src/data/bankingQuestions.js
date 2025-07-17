@@ -113,5 +113,54 @@ export const bankingQuestions = [
       'اورنج',
       'وي - المصرية للاتصالات'
     ]
+  },
+  {
+    id: 'bank_awareness',
+    type: 'checkbox',
+    question: 'تعرف أو سمعت عن أي من البنوك التالية؟',
+    subtitle: '',
+    variant: 'image-mid',
+    options: [
+      'البنك الأهلي المصري — National Bank of Egypt (NBE)',
+      'بنك مصر — Banque Misr',
+      'بنك القاهرة — Banque du Caire',
+      'البنك الإسكندرية — Alex Bank',
+      'البنك التجاري الدولي — Commercial International Bank (CIB)',
+      'بنك قطر الوطني — Qatar National Bank (QNB)',
+      'البنك المصري لتنمية الصادرات — Export Development Bank (E-Bank)',
+      'البنك المصري الخليجي — Egyptian Gulf Bank – EG Bank',
+      'إتش إس بي سي — HSBC',
+      'بنك الإمارات دبي الوطني — Emirates NBD',
+      'البنك العربي الأفريقي الدولي — Arab African International Bank (AAIB)',
+      'مصرف أبوظبي الإسلامي — Abu Dhabi Islamic Bank (ADIB)',
+      'بنك التعمير والإسكان — Housing & Development Bank (HDB)',
+      'بنك فيصل الإسلامي المصري — Faisal Islamic Bank of Egypt',
+      'كريدي أجريكول — Credit Agricole',
+      'بنك أبو ظبي التجاري — Abu Dhabi Commercial Bank (ADCB)',
+      'بنك أبو ظبي الأول — First Abu Dhabi Bank (FAB)',
+      'سايب — SAIB',
+      'معرفش أي بنك من دول'
+    ],
+    images: [
+      '/images/banks/national bank of Egypt.svg',
+      '/images/banks/Banque_Misr.svg.png',
+      '/images/banks/Banque_du_caire_Logo.svg.png',
+      '/images/banks/Alex_Bank_Logo.svg.png',
+      '/images/banks/Cib_Logo.svg.png',
+      '/images/banks/Logo_Qatar_National_Bank.png',
+      '/images/banks/EBank_Logo.jpg',
+      '/images/banks/البنك_المصري_الخليجي.png',
+      '/images/banks/HSBC_logo_(2018).svg.png',
+      '/images/banks/Emirates_NBD.svg.png',
+      '/images/banks/البنك_العربى_الافريقى_الدولى.png',
+      '/images/banks/Abu_Dhabi_Islamic_Bank_(logo).png',
+      '/images/banks/housing development bank.jpg',
+      '/images/banks/بنك_فيصل_الاسلامي_المصري.png',
+      '/images/banks/Crédit_Agricole.svg.png',
+      '/images/banks/Abu_Dhabi_Commercial_Bank_logo.svg.png',
+      '/images/banks/First_Abu_Dhabi_Bank_Logo.svg.png',
+      '/images/banks/saib bank.jpg',
+      null // No image for "I don't know any of these banks"
+    ]
   }
 ]; 

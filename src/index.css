@@ -641,6 +641,102 @@ code {
   background: #e9ecef;
 }
 
+/* Mid-size image variant for checkbox questions */
+.checkbox-group.image-mid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 100%;
+}
+
+.checkbox-option.image-mid {
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  min-height: 180px;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.option-image-mid {
+  width: 120px;
+  height: 80px;
+  margin: 0 auto 15px auto;
+  flex-shrink: 0;
+}
+
+.option-image-mid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.checkbox-option.image-mid .option-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: auto;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.checkbox-option.image-mid .radio-text {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+/* Desktop improvements for mid-size checkbox images */
+@media (min-width: 768px) {
+  .checkbox-group.image-mid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+  }
+  
+  .checkbox-option.image-mid {
+    padding: 25px;
+    min-height: 200px;
+  }
+  
+  .option-image-mid {
+    width: 140px;
+    height: 90px;
+    margin-bottom: 20px;
+  }
+  
+  .checkbox-option.image-mid .radio-text {
+    font-size: 16px;
+  }
+}
+
+/* Mobile improvements for mid-size checkbox images */
+@media (max-width: 767px) {
+  .checkbox-group.image-mid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+  
+  .checkbox-option.image-mid {
+    padding: 15px;
+    min-height: 160px;
+  }
+  
+  .option-image-mid {
+    width: 100px;
+    height: 70px;
+    margin-bottom: 12px;
+  }
+  
+  .checkbox-option.image-mid .radio-text {
+    font-size: 13px;
+  }
+}
+
 .checkbox-option.selected {
   border-color: #6c757d;
   background: #e9ecef;
