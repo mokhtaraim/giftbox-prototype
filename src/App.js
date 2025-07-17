@@ -13,6 +13,7 @@ import MultiTextQuestion from './components/MultiTextQuestion';
 import GridQuestion from './components/GridQuestion';
 import SliderQuestion from './components/SliderQuestion';
 import RankingQuestion from './components/RankingQuestion';
+import DropdownQuestion from './components/DropdownQuestion';
 import CompletionScreen from './components/CompletionScreen';
 import WelcomeScreen from './components/WelcomeScreen';
 
@@ -32,7 +33,7 @@ function App() {
     
     if (currentQuestion.type === 'radio' || currentQuestion.type === 'scale') {
       return currentAnswer !== undefined;
-    } else if (currentQuestion.type === 'checkbox') {
+    } else if (currentQuestion.type === 'checkbox' || currentQuestion.type === 'dropdown') {
       return currentAnswer && currentAnswer.length > 0;
     } else if (currentQuestion.type === 'text') {
       return currentAnswer && currentAnswer.trim().length > 0;
@@ -103,6 +104,14 @@ function App() {
       case 'checkbox':
         return (
           <CheckboxQuestion
+            question={currentQuestion}
+            selectedAnswers={currentAnswer || []}
+            onAnswerChange={handleAnswerChange}
+          />
+        );
+      case 'dropdown':
+        return (
+          <DropdownQuestion
             question={currentQuestion}
             selectedAnswers={currentAnswer || []}
             onAnswerChange={handleAnswerChange}
