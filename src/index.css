@@ -477,12 +477,64 @@ code {
   border-radius: 4px;
 }
 
+/* Image-focused variant for detailed image viewing */
+.radio-group.image-focused {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.radio-option.image-focused {
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+  min-height: 180px;
+}
+
+.option-image-large {
+  width: 120px;
+  height: 80px;
+  margin: 0 auto 15px auto;
+  flex-shrink: 0;
+}
+
+.option-image-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.option-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
 /* Desktop radio/checkbox improvements */
 @media (min-width: 768px) {
   .option-image {
     width: 80px;
     height: 40px;
     margin-left: 15px;
+  }
+  
+  .radio-group.image-focused {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+  
+  .radio-option.image-focused {
+    padding: 25px;
+    min-height: 220px;
+  }
+  
+  .option-image-large {
+    width: 150px;
+    height: 100px;
+    margin-bottom: 20px;
   }
   .radio-group,
   .checkbox-group,

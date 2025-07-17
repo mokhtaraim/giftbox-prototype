@@ -85,13 +85,32 @@ export const surveyQuestions = [
   },
   {
     id: 5,
+    type: 'radio',
+    question: 'أي من هذه الشعارات تفضل أكثر؟',
+    subtitle: 'انظر بعناية للتفاصيل واختر الأفضل',
+    variant: 'image-focused',
+    options: [
+      'فودافون',
+      'اتصالات',
+      'وي',
+      'أورنج'
+    ],
+    images: [
+      '/images/logos/vodafone.svg',
+      '/images/logos/etisalat.png',
+      '/images/logos/we.png',
+      '/images/logos/orange.png'
+    ]
+  },
+  {
+    id: 6,
     type: 'nps',
     question: 'ما مدى احتمالية أن توصي أصدقائك باستخدام خدمات فودافون؟',
     subtitle: '(0 = غير محتمل إطلاقًا، 10 = محتمل جدًا)',
     scale: { min: 0, max: 10 }
   },
   {
-    id: 6,
+    id: 7,
     type: 'scale',
     question: 'كيف تقيم جودة خدمة العملاء في فودافون؟',
     subtitle: '',
@@ -104,14 +123,14 @@ export const surveyQuestions = [
     ]
   },
   {
-    id: 7,
+    id: 8,
     type: 'multi-text',
     question: 'ما هي المميزات التي تود رؤيتها في خدمات فودافون مستقبلاً؟',
     subtitle: '(يمكنك كتابة أكثر من إجابة)',
         placeholder: 'اكتب إجابتك هنا ...'
   },
   {
-    id: 8,
+    id: 9,
     type: 'grid',
     question: 'ما مدى رضاك عن الجوانب التالية من خدمات فودافون؟',
     subtitle: '',
@@ -127,14 +146,14 @@ export const surveyQuestions = [
     ]
   },
   {
-    id: 9,
+    id: 10,
     type: 'slider',
     question: 'على مقياس من 0 إلى 5، ما مدى رضاك العام عن فودافون؟',
     subtitle: '',
     scale: { min: 0, max: 5 }
   },
   {
-    id: 10,
+    id: 11,
     type: 'ranking',
     question: 'رتب هذه المميزات من الأهم إلى الأقل أهمية بالنسبة لك:',
     subtitle: '',

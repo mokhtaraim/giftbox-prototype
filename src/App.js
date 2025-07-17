@@ -29,27 +29,9 @@ function App() {
   const currentQuestion = surveyQuestions[currentQuestionIndex];
   const isLastQuestion = currentQuestionIndex === surveyQuestions.length - 1;
 
-  // Check if current question can proceed
+  // Check if current question can proceed - now always allows proceeding
   const canProceed = () => {
-    const currentAnswer = answers[currentQuestion.id];
-    
-    if (currentQuestion.type === 'radio' || currentQuestion.type === 'scale') {
-      return currentAnswer !== undefined;
-    } else if (currentQuestion.type === 'checkbox' || currentQuestion.type === 'dropdown') {
-      return currentAnswer && currentAnswer.length > 0;
-    } else if (currentQuestion.type === 'text' || currentQuestion.type === 'short-text' || currentQuestion.type === 'numeric') {
-      return currentAnswer && currentAnswer.trim().length > 0;
-    } else if (currentQuestion.type === 'nps' || currentQuestion.type === 'slider') {
-      return currentAnswer !== undefined;
-    } else if (currentQuestion.type === 'multi-text') {
-      return currentAnswer && currentAnswer.some(answer => answer.trim().length > 0);
-    } else if (currentQuestion.type === 'grid') {
-      return currentAnswer && Object.keys(currentAnswer).length === currentQuestion.rows.length;
-    } else if (currentQuestion.type === 'ranking') {
-      return currentAnswer && Array.isArray(currentAnswer) && currentAnswer.length === currentQuestion.options.length;
-    }
-    
-    return false;
+    return true; // Allow proceeding without answering
   };
 
   // Handle answer changes

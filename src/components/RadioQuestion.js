@@ -8,20 +8,36 @@ const RadioQuestion = ({ question, selectedAnswer, onAnswerChange }) => {
         <p className="question-subtitle">{question.subtitle}</p>
       )}
       
-      <div className="radio-group">
+      <div className={`radio-group ${question.variant === 'image-focused' ? 'image-focused' : ''}`}>
         {question.options.map((option, index) => (
           <div
             key={index}
-            className={`radio-option ${selectedAnswer === index ? 'selected' : ''} ${question.images ? 'with-image' : ''}`}
+            className={`radio-option ${selectedAnswer === index ? 'selected' : ''} ${question.images ? 'with-image' : ''} ${question.variant === 'image-focused' ? 'image-focused' : ''}`}
             onClick={() => onAnswerChange(index)}
           >
-            <div className={`radio-input ${selectedAnswer === index ? 'checked' : ''}`}></div>
-            {question.images && question.images[index] && (
-              <div className="option-image">
-                <img src={question.images[index]} alt={option} />
-              </div>
+            {question.variant === 'image-focused' ? (
+              <>
+                {question.images && question.images[index] && (
+                  <div className="option-image-large">
+                    <img src={question.images[index]} alt={option} />
+                  </div>
+                )}
+                <div className="option-content">
+                  <div className={`radio-input ${selectedAnswer === index ? 'checked' : ''}`}></div>
+                  <span className="radio-text">{option}</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className={`radio-input ${selectedAnswer === index ? 'checked' : ''}`}></div>
+                {question.images && question.images[index] && (
+                  <div className="option-image">
+                    <img src={question.images[index]} alt={option} />
+                  </div>
+                )}
+                <span className="radio-text">{option}</span>
+              </>
             )}
-            <span className="radio-text">{option}</span>
           </div>
         ))}
       </div>
