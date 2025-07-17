@@ -234,5 +234,66 @@ export const bankingQuestions = [
     variant: 'image-mid',
     options: BANK_OPTIONS,
     images: BANK_IMAGES
+  },
+  {
+    id: 'movie_series_feedback',
+    type: 'text',
+    question: 'ايه اخر فيلم او مسلسل شفته او شفت مقاطع منه؟ ايه هى اكتر حاجة خليته يعجبك او ميعجبكش؟',
+    subtitle: '',
+    placeholder: 'اكتب رأيك بالتفصيل...'
+  },
+  {
+    id: 'trustworthy_bank',
+    type: 'checkbox',
+    question: 'في رأيك, انهى من البنوك التالية بينطبق عليها العبارة ديه',
+    subtitle: 'بنك بثق فيه',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
+  },
+  {
+    id: 'reputable_bank',
+    type: 'checkbox',
+    question: 'في رأيك, انهى من البنوك التالية بينطبق عليها العبارة ديه',
+    subtitle: 'بنك عريق و ليه اسم',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
+  },
+  {
+    id: 'customer_friendly_bank',
+    type: 'checkbox',
+    question: 'في رأيك, انهى من البنوك التالية بينطبق عليها العبارة ديه',
+    subtitle: 'بنك مريح فى التعامل و بيهتم بالعميل',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
+  },
+  {
+    id: 'customer_interest_bank',
+    type: 'checkbox',
+    question: 'في رأيك, انهى من البنوك التالية بينطبق عليها العبارة ديه',
+    subtitle: 'بنك بيهمه مصلحتي سواء فى الاستثمار او القروض',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
+  },
+  {
+    id: 'attractive_ads_bank',
+    type: 'checkbox',
+    question: 'في رأيك, انهى من البنوك التالية بينطبق عليها العبارة ديه',
+    subtitle: 'بنك اعلاناته جذابة',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
+  },
+  {
+    id: 'modern_bank',
+    type: 'checkbox',
+    question: 'في رأيك, انهى من البنوك التالية بينطبق عليها العبارة ديه',
+    subtitle: 'بنك عصرى و متطور',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
   }
 ]; 
