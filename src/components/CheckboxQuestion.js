@@ -25,13 +25,20 @@ const CheckboxQuestion = ({ question, selectedAnswers, onAnswerChange }) => {
           >
             {question.variant === 'image-mid' ? (
               <>
+                {/* Checkbox positioned in top-right corner */}
+                <div className="checkbox-corner">
+                  <div className={`checkbox-input ${selectedAnswers.includes(index) ? 'checked' : ''}`}></div>
+                </div>
+                
+                {/* Logo container */}
                 {question.images && question.images[index] && (
                   <div className="option-image-mid">
                     <img src={question.images[index]} alt={option} />
                   </div>
                 )}
-                <div className="option-content">
-                  <div className={`checkbox-input ${selectedAnswers.includes(index) ? 'checked' : ''}`}></div>
+                
+                {/* Text content */}
+                <div className="option-text-container">
                   <span className="radio-text">{option}</span>
                 </div>
               </>
