@@ -60,9 +60,9 @@ export const surveyQuestions = [
     ],
     images: [
       '/images/logos/vodafone.svg',
-      '/images/logos/etisalat.svg',
-      '/images/logos/we.svg',
-      '/images/logos/orange.svg'
+      '/images/logos/etisalat.png',
+      '/images/logos/we.png',
+      '/images/logos/orange.png'
     ]
   },
   {
@@ -78,9 +78,9 @@ export const surveyQuestions = [
     ],
     images: [
       '/images/logos/vodafone.svg',
-      '/images/logos/etisalat.svg',
-      '/images/logos/we.svg',
-      '/images/logos/orange.svg'
+      '/images/logos/etisalat.png',
+      '/images/logos/we.png',
+      '/images/logos/orange.png'
     ]
   },
   {
