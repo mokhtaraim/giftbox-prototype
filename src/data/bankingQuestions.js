@@ -1,3 +1,48 @@
+// Unified bank options and images for reuse across multiple questions
+const BANK_OPTIONS = [
+  'البنك الأهلي المصري — National Bank of Egypt (NBE)',
+  'بنك مصر — Banque Misr',
+  'بنك القاهرة — Banque du Caire',
+  'البنك الإسكندرية — Alex Bank',
+  'البنك التجاري الدولي — Commercial International Bank (CIB)',
+  'بنك قطر الوطني — Qatar National Bank (QNB)',
+  'البنك المصري لتنمية الصادرات — Export Development Bank (E-Bank)',
+  'البنك المصري الخليجي — Egyptian Gulf Bank – EG Bank',
+  'إتش إس بي سي — HSBC',
+  'بنك الإمارات دبي الوطني — Emirates NBD',
+  'البنك العربي الأفريقي الدولي — Arab African International Bank (AAIB)',
+  'مصرف أبوظبي الإسلامي — Abu Dhabi Islamic Bank (ADIB)',
+  'بنك التعمير والإسكان — Housing & Development Bank (HDB)',
+  'بنك فيصل الإسلامي المصري — Faisal Islamic Bank of Egypt',
+  'كريدي أجريكول — Credit Agricole',
+  'بنك أبو ظبي التجاري — Abu Dhabi Commercial Bank (ADCB)',
+  'بنك أبو ظبي الأول — First Abu Dhabi Bank (FAB)',
+  'سايب — SAIB',
+  'معرفش أي بنك من دول'
+];
+
+const BANK_IMAGES = [
+  '/images/banks/national bank of Egypt.svg',
+  '/images/banks/Banque_Misr.svg.png',
+  '/images/banks/Banque_du_caire_Logo.svg.png',
+  '/images/banks/Alex_Bank_Logo.svg.png',
+  '/images/banks/Cib_Logo.svg.png',
+  '/images/banks/Logo_Qatar_National_Bank.png',
+  '/images/banks/EBank_Logo.jpg',
+  '/images/banks/البنك_المصري_الخليجي.png',
+  '/images/banks/HSBC_logo_(2018).svg.png',
+  '/images/banks/Emirates_NBD.svg.png',
+  '/images/banks/البنك_العربى_الافريقى_الدولى.png',
+  '/images/banks/Abu_Dhabi_Islamic_Bank_(logo).png',
+  '/images/banks/housing development bank.jpg',
+  '/images/banks/بنك_فيصل_الاسلامي_المصري.png',
+  '/images/banks/Crédit_Agricole.svg.png',
+  '/images/banks/Abu_Dhabi_Commercial_Bank_logo.svg.png',
+  '/images/banks/First_Abu_Dhabi_Bank_Logo.svg.png',
+  '/images/banks/saib bank.jpg',
+  null // No image for "I don't know any of these banks"
+];
+
 // Banking survey questions
 export const bankingQuestions = [
   {
@@ -120,47 +165,74 @@ export const bankingQuestions = [
     question: 'تعرف أو سمعت عن أي من البنوك التالية؟',
     subtitle: '',
     variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
+  },
+  {
+    id: 'bank_customer',
+    type: 'checkbox',
+    question: 'انهى من البنوك التالية انت عميل فيهم؟',
+    subtitle: '(عميل في بنك بمعنى انك بتستخدم واحدة او اكثر من الخدمات التالية: حساب بنكى – بطاقات الأتمان credit card – القروض – شهادات استثمار)',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
+  },
+  {
+    id: 'bank_joining_likelihood',
+    type: 'radio',
+    question: 'أي مدى احتمالية إنك تشترك في بنك (تبقى عميل في البنك) خلال السنة الجاية؟',
+    subtitle: '',
     options: [
-      'البنك الأهلي المصري — National Bank of Egypt (NBE)',
-      'بنك مصر — Banque Misr',
-      'بنك القاهرة — Banque du Caire',
-      'البنك الإسكندرية — Alex Bank',
-      'البنك التجاري الدولي — Commercial International Bank (CIB)',
-      'بنك قطر الوطني — Qatar National Bank (QNB)',
-      'البنك المصري لتنمية الصادرات — Export Development Bank (E-Bank)',
-      'البنك المصري الخليجي — Egyptian Gulf Bank – EG Bank',
-      'إتش إس بي سي — HSBC',
-      'بنك الإمارات دبي الوطني — Emirates NBD',
-      'البنك العربي الأفريقي الدولي — Arab African International Bank (AAIB)',
-      'مصرف أبوظبي الإسلامي — Abu Dhabi Islamic Bank (ADIB)',
-      'بنك التعمير والإسكان — Housing & Development Bank (HDB)',
-      'بنك فيصل الإسلامي المصري — Faisal Islamic Bank of Egypt',
-      'كريدي أجريكول — Credit Agricole',
-      'بنك أبو ظبي التجاري — Abu Dhabi Commercial Bank (ADCB)',
-      'بنك أبو ظبي الأول — First Abu Dhabi Bank (FAB)',
-      'سايب — SAIB',
-      'معرفش أي بنك من دول'
-    ],
-    images: [
-      '/images/banks/national bank of Egypt.svg',
-      '/images/banks/Banque_Misr.svg.png',
-      '/images/banks/Banque_du_caire_Logo.svg.png',
-      '/images/banks/Alex_Bank_Logo.svg.png',
-      '/images/banks/Cib_Logo.svg.png',
-      '/images/banks/Logo_Qatar_National_Bank.png',
-      '/images/banks/EBank_Logo.jpg',
-      '/images/banks/البنك_المصري_الخليجي.png',
-      '/images/banks/HSBC_logo_(2018).svg.png',
-      '/images/banks/Emirates_NBD.svg.png',
-      '/images/banks/البنك_العربى_الافريقى_الدولى.png',
-      '/images/banks/Abu_Dhabi_Islamic_Bank_(logo).png',
-      '/images/banks/housing development bank.jpg',
-      '/images/banks/بنك_فيصل_الاسلامي_المصري.png',
-      '/images/banks/Crédit_Agricole.svg.png',
-      '/images/banks/Abu_Dhabi_Commercial_Bank_logo.svg.png',
-      '/images/banks/First_Abu_Dhabi_Bank_Logo.svg.png',
-      '/images/banks/saib bank.jpg',
-      null // No image for "I don't know any of these banks"
+      'أكيد هشترك',
+      'غالباً هشترك',
+      'مش عارف',
+      'غالباً مش هشترك',
+      'أكيد مش هشترك'
     ]
+  },
+  {
+    id: 'bank_accounts',
+    type: 'checkbox',
+    question: 'هل عندك حساب بنكى في اى من البنوك التالية؟',
+    subtitle: '',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
+  },
+  {
+    id: 'credit_cards',
+    type: 'checkbox',
+    question: 'هل عندك بطاقة ائتمان (Credit Card) فى اي من البنوك التالية؟',
+    subtitle: 'بطاقة الائتمان (Credit Card) هي البطاقة اللي بتستخدمها في مشترياتك ومش بتخصم من حسابك البنكي وبتسددها بعد الاستخدام بفترة.\n\nو هى غير بطاقة السحب (Debit Card) اللى بتسحب منها فلوس او بتسدد مشترياتك من حسابك البنكي.',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
+  },
+  {
+    id: 'bank_loans',
+    type: 'checkbox',
+    question: 'هل واخد قرض من اى من البنوك التالية؟',
+    subtitle: '',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
+  },
+  {
+    id: 'investment_certificates',
+    type: 'checkbox',
+    question: 'هل عندك شهادات إستثمار فى اى من البنوك التالية؟',
+    subtitle: '',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
+  },
+  {
+    id: 'internet_banking',
+    type: 'checkbox',
+    question: 'هل بتستخدم الانترنت البنكى Internet banking من البنوك التالية؟',
+    subtitle: '',
+    variant: 'image-mid',
+    options: BANK_OPTIONS,
+    images: BANK_IMAGES
   }
 ]; 
