@@ -14,6 +14,8 @@ import GridQuestion from './components/GridQuestion';
 import SliderQuestion from './components/SliderQuestion';
 import RankingQuestion from './components/RankingQuestion';
 import DropdownQuestion from './components/DropdownQuestion';
+import ShortTextQuestion from './components/ShortTextQuestion';
+import NumericQuestion from './components/NumericQuestion';
 import CompletionScreen from './components/CompletionScreen';
 import WelcomeScreen from './components/WelcomeScreen';
 
@@ -35,7 +37,7 @@ function App() {
       return currentAnswer !== undefined;
     } else if (currentQuestion.type === 'checkbox' || currentQuestion.type === 'dropdown') {
       return currentAnswer && currentAnswer.length > 0;
-    } else if (currentQuestion.type === 'text') {
+    } else if (currentQuestion.type === 'text' || currentQuestion.type === 'short-text' || currentQuestion.type === 'numeric') {
       return currentAnswer && currentAnswer.trim().length > 0;
     } else if (currentQuestion.type === 'nps' || currentQuestion.type === 'slider') {
       return currentAnswer !== undefined;
@@ -114,6 +116,22 @@ function App() {
           <DropdownQuestion
             question={currentQuestion}
             selectedAnswers={currentAnswer || []}
+            onAnswerChange={handleAnswerChange}
+          />
+        );
+      case 'short-text':
+        return (
+          <ShortTextQuestion
+            question={currentQuestion}
+            answer={currentAnswer || ''}
+            onAnswerChange={handleAnswerChange}
+          />
+        );
+      case 'numeric':
+        return (
+          <NumericQuestion
+            question={currentQuestion}
+            answer={currentAnswer || ''}
             onAnswerChange={handleAnswerChange}
           />
         );

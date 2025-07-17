@@ -35,6 +35,20 @@ export const surveyQuestions = [
   },
   {
     id: 1,
+    type: 'short-text',
+    question: 'الاسم',
+    subtitle: '',
+    placeholder: 'اكتب اسمك هنا...'
+  },
+  {
+    id: 2,
+    type: 'numeric',
+    question: 'العمر',
+    subtitle: '',
+    placeholder: 'أدخل عمرك...'
+  },
+  {
+    id: 3,
     type: 'radio',
     question: 'ما هي الشبكة التي تستخدمها حالياً؟',
     subtitle: '',
@@ -46,7 +60,7 @@ export const surveyQuestions = [
     ]
   },
   {
-    id: 2,
+    id: 4,
     type: 'checkbox',
     question: 'ما هي الخدمات التي تستخدمها من فودافون؟',
     subtitle: '',
@@ -58,14 +72,14 @@ export const surveyQuestions = [
     ]
   },
   {
-    id: 3,
+    id: 5,
     type: 'nps',
     question: 'ما مدى احتمالية أن توصي أصدقائك باستخدام خدمات فودافون؟',
     subtitle: '(0 = غير محتمل إطلاقًا، 10 = محتمل جدًا)',
     scale: { min: 0, max: 10 }
   },
   {
-    id: 4,
+    id: 6,
     type: 'scale',
     question: 'كيف تقيم جودة خدمة العملاء في فودافون؟',
     subtitle: '',
@@ -78,14 +92,14 @@ export const surveyQuestions = [
     ]
   },
   {
-    id: 5,
+    id: 7,
     type: 'multi-text',
     question: 'ما هي المميزات التي تود رؤيتها في خدمات فودافون مستقبلاً؟',
     subtitle: '(يمكنك كتابة أكثر من إجابة)',
         placeholder: 'اكتب إجابتك هنا ...'
   },
   {
-    id: 6,
+    id: 8,
     type: 'grid',
     question: 'ما مدى رضاك عن الجوانب التالية من خدمات فودافون؟',
     subtitle: '',
@@ -101,14 +115,14 @@ export const surveyQuestions = [
     ]
   },
   {
-    id: 7,
+    id: 9,
     type: 'slider',
     question: 'على مقياس من 0 إلى 5، ما مدى رضاك العام عن فودافون؟',
     subtitle: '',
     scale: { min: 0, max: 5 }
   },
   {
-    id: 8,
+    id: 10,
     type: 'ranking',
     question: 'رتب هذه المميزات من الأهم إلى الأقل أهمية بالنسبة لك:',
     subtitle: '',
