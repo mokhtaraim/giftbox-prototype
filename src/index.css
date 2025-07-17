@@ -1548,4 +1548,46 @@ code {
     font-size: 14px;
     bottom: -30px;
   }
+}
+
+/* Image support for radio and checkbox options */
+.radio-option.with-image,
+.checkbox-option.with-image {
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 15px;
+}
+
+.option-image {
+  margin-right: 12px;
+  margin-left: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.option-image img {
+  max-width: 60px;
+  max-height: 30px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Desktop image improvements */
+@media (min-width: 768px) {
+  .radio-option.with-image,
+  .checkbox-option.with-image {
+    padding: 15px 20px;
+  }
+  
+  .option-image {
+    margin-right: 15px;
+    margin-left: 10px;
+  }
+  
+  .option-image img {
+    max-width: 80px;
+    max-height: 40px;
+  }
 } 

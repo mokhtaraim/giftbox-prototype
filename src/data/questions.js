@@ -50,25 +50,37 @@ export const surveyQuestions = [
   {
     id: 3,
     type: 'radio',
-    question: 'ما هي الشبكة التي تستخدمها حالياً؟',
+    question: 'ما هي شبكة هاتفك؟',
     subtitle: '',
     options: [
       'فودافون',
-      'أورانج',
       'اتصالات',
-      'وي'
+      'وي',
+      'أورنج'
+    ],
+    images: [
+      '/images/logos/vodafone.svg',
+      '/images/logos/etisalat.svg',
+      '/images/logos/we.svg',
+      '/images/logos/orange.svg'
     ]
   },
   {
     id: 4,
     type: 'checkbox',
-    question: 'ما هي الخدمات التي تستخدمها من فودافون؟',
-    subtitle: '',
+    question: 'ما هي الشبكات التي استخدمتها من قبل؟',
+    subtitle: '(يمكنك اختيار أكثر من شبكة)',
     options: [
-      'الإنترنت المنزلي',
-      'المكالمات الدولية',
-      'باقات الإنترنت للموبايل',
-      'الخدمات المالية (فودافون كاش)'
+      'فودافون',
+      'اتصالات',
+      'وي',
+      'أورنج'
+    ],
+    images: [
+      '/images/logos/vodafone.svg',
+      '/images/logos/etisalat.svg',
+      '/images/logos/we.svg',
+      '/images/logos/orange.svg'
     ]
   },
   {
