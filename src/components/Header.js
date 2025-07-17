@@ -68,7 +68,6 @@ const Header = ({ currentQuestion, totalQuestions, showProgress = true, language
                 style={{ width: `${progress}%` }}
               ></div>
             </div>
-            <div className="progress-text">{Math.round(progress)}%</div>
           </div>
         )}
       </div>
