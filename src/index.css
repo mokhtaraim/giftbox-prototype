@@ -1379,6 +1379,126 @@ code {
   background: #1f2631;
 }
 
+/* Survey selection options */
+.survey-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.survey-option-btn {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100%;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.survey-option-btn:hover {
+  border-color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+}
+
+.survey-option-btn.banking-survey:hover {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+  color: white;
+  border-color: #28a745;
+}
+
+.survey-option-btn.question-types:hover {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  border-color: #007bff;
+}
+
+.survey-option-content {
+  width: 100%;
+}
+
+.survey-option-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.survey-option-subtitle {
+  font-size: 16px;
+  color: #6c757d;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.survey-option-btn:hover .survey-option-title,
+.survey-option-btn:hover .survey-option-subtitle {
+  color: white;
+}
+
+/* Banking welcome button variant */
+.banking-btn {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.banking-btn:hover {
+  background: linear-gradient(135deg, #1e7e34, #155724);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+}
+
+/* Info question styles for placeholder content */
+.info-question {
+  text-align: center;
+  padding: 40px;
+}
+
+.info-question h2 {
+  font-size: 24px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.info-question p {
+  font-size: 16px;
+  color: #6c757d;
+}
+
+/* Responsive design for survey options */
+@media (min-width: 768px) {
+  .survey-options {
+    flex-direction: row;
+    gap: 24px;
+  }
+  
+  .survey-option-btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .survey-option-btn {
+    min-height: 100px;
+    padding: 20px;
+  }
+  
+  .survey-option-title {
+    font-size: 18px;
+  }
+  
+  .survey-option-subtitle {
+    font-size: 14px;
+  }
+}
+
 /* Desktop responsive improvements */
 @media (min-width: 768px) {
   .welcome-title {

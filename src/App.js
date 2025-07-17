@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import { surveyQuestions } from './data/questions';
+import { bankingQuestions } from './data/bankingQuestions';
 import Header from './components/Header';
 import QuestionLayout from './components/QuestionLayout';
 import WelcomeLayout from './components/WelcomeLayout';
@@ -18,16 +19,21 @@ import ShortTextQuestion from './components/ShortTextQuestion';
 import NumericQuestion from './components/NumericQuestion';
 import CompletionScreen from './components/CompletionScreen';
 import WelcomeScreen from './components/WelcomeScreen';
+import StartScreen from './components/StartScreen';
+import BankingWelcomeScreen from './components/BankingWelcomeScreen';
 
 function App() {
+  const [surveyType, setSurveyType] = useState(null); // 'banking' or 'question-types'
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [isCompleted, setIsCompleted] = useState(false);
   const [isStarted, setIsStarted] = useState(false);
   const [language, setLanguage] = useState('ar');
 
-  const currentQuestion = surveyQuestions[currentQuestionIndex];
-  const isLastQuestion = currentQuestionIndex === surveyQuestions.length - 1;
+  // Get current questions based on survey type
+  const currentQuestions = surveyType === 'banking' ? bankingQuestions : surveyQuestions;
+  const currentQuestion = currentQuestions[currentQuestionIndex];
+  const isLastQuestion = currentQuestionIndex === currentQuestions.length - 1;
 
   // Check if current question can proceed - now always allows proceeding
   const canProceed = () => {
@@ -64,13 +70,27 @@ function App() {
     setAnswers({});
     setIsCompleted(false);
     setIsStarted(false);
+    setSurveyType(null);
+  };
+
+  // Handle survey type selection
+  const handleSurveySelect = (type) => {
+    setSurveyType(type);
+    setCurrentQuestionIndex(0);
+    setAnswers({});
+    setIsCompleted(false);
+    setIsStarted(false);
+  };
+
+  // Start the selected survey
+  const handleStart = () => {
+    setIsStarted(true);
   };
 
   useEffect(() => {
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
   }, [language]);
-
 
   // Render current question based on type
   const renderQuestion = () => {
@@ -173,30 +193,56 @@ function App() {
             onAnswerChange={handleAnswerChange}
           />
         );
+      case 'info':
+        // For placeholder banking questions
+        return (
+          <div className="info-question">
+            <h2>{currentQuestion.question}</h2>
+            <p>{currentQuestion.subtitle}</p>
+          </div>
+        );
       default:
         return null;
     }
   };
 
-  if (!isStarted) {
+  // Show start screen if no survey type is selected
+  if (!surveyType) {
     return (
       <WelcomeLayout
         currentQuestion={0}
-        totalQuestions={surveyQuestions.length}
+        totalQuestions={0}
         showProgress={false}
         language={language}
         onLanguageChange={setLanguage}
       >
-        <WelcomeScreen onStart={() => setIsStarted(true)} language={language} />
+        <StartScreen onSurveySelect={handleSurveySelect} language={language} />
       </WelcomeLayout>
     );
   }
 
+  // Show welcome screen for selected survey type if not started
+  if (!isStarted) {
+    const WelcomeComponent = surveyType === 'banking' ? BankingWelcomeScreen : WelcomeScreen;
+    return (
+      <WelcomeLayout
+        currentQuestion={0}
+        totalQuestions={currentQuestions.length}
+        showProgress={false}
+        language={language}
+        onLanguageChange={setLanguage}
+      >
+        <WelcomeComponent onStart={handleStart} language={language} />
+      </WelcomeLayout>
+    );
+  }
+
+  // Show completion screen
   if (isCompleted) {
     return (
       <WelcomeLayout
-        currentQuestion={surveyQuestions.length}
-        totalQuestions={surveyQuestions.length}
+        currentQuestion={currentQuestions.length}
+        totalQuestions={currentQuestions.length}
         showProgress={true}
         language={language}
         onLanguageChange={setLanguage}
@@ -206,10 +252,11 @@ function App() {
     );
   }
 
+  // Show questions
   return (
     <QuestionLayout
       currentQuestion={currentQuestionIndex + 1}
-      totalQuestions={surveyQuestions.length}
+      totalQuestions={currentQuestions.length}
       language={language}
       onLanguageChange={setLanguage}
       onPrevious={handlePrevious}
