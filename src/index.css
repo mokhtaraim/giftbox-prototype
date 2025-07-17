@@ -366,6 +366,7 @@ code {
   line-height: 1.6;
   margin-bottom: 8px;
   color: #333;
+  text-align: right;
 }
 
 .question-subtitle {
@@ -373,6 +374,7 @@ code {
   color: #666;
   margin-bottom: 30px;
   line-height: 1.4;
+  text-align: right;
 }
 
 /* Desktop typography improvements */
@@ -380,13 +382,13 @@ code {
   .question-title {
     font-size: 24px;
     margin-bottom: 12px;
-    text-align: center;
+    text-align: right;
   }
   
   .question-subtitle {
     font-size: 16px;
     margin-bottom: 40px;
-    text-align: center;
+    text-align: right;
   }
 }
 
