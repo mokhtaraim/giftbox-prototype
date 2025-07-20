@@ -30,21 +30,24 @@ body {
   overflow-x: hidden;
 }
 
-/* Mobile: Prevent body scrolling beyond content */
+/* Mobile: Allow controlled scrolling */
 @media (max-width: 767px) {
   body {
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   
   .app {
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   
   .container {
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }
 
@@ -53,12 +56,13 @@ body {
   .unified-question-container {
     margin: 10px 10px 90px; /* Bottom margin to clear fixed navigation */
     min-height: calc(100vh - 240px); /* Account for header + navigation + margins */
-    max-height: calc(100vh - 240px);
+    max-height: none; /* Allow content to expand */
   }
   
   .question-content {
     padding: 25px 20px 30px; /* Reduced bottom padding since container has margin */
-    max-height: 100%;
+    max-height: none; /* Allow content to scroll */
+    overflow-y: auto;
   }
 }
 
@@ -1005,20 +1009,42 @@ code {
 /* Mobile NPS - smaller buttons to fit all 11 in one line */
 @media (max-width: 767px) {
   .nps-scale {
-    gap: 3px;
+    gap: 2px;
+    padding: 0 10px;
+    justify-content: space-between;
+  }
+  
+  .nps-button {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+    border-width: 1px;
+    flex-shrink: 0;
+    min-width: 26px;
+  }
+  
+  .nps-labels {
+    font-size: 10px;
+    padding: 0 10px;
+  }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 380px) {
+  .nps-scale {
+    gap: 1px;
     padding: 0 5px;
   }
   
   .nps-button {
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-    border-width: 1px;
-    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+    min-width: 24px;
   }
   
   .nps-labels {
-    font-size: 11px;
+    font-size: 9px;
     padding: 0 5px;
   }
 }

@@ -72,7 +72,14 @@ function App() {
     } else {
       setCurrentQuestionIndex(prev => prev + 1);
       // Scroll to top when moving to next question
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Also scroll container elements for mobile
+        const container = document.querySelector('.question-content');
+        if (container) {
+          container.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 50);
     }
   };
 
@@ -81,7 +88,14 @@ function App() {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(prev => prev - 1);
       // Scroll to top when moving to previous question
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Also scroll container elements for mobile
+        const container = document.querySelector('.question-content');
+        if (container) {
+          container.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 50);
     }
   };
 
@@ -116,7 +130,14 @@ function App() {
   // Scroll to top when question changes (for any reason)
   useEffect(() => {
     if (isStarted && !isCompleted) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Also scroll container elements for mobile
+        const container = document.querySelector('.question-content');
+        if (container) {
+          container.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 100);
     }
   }, [currentQuestionIndex, isStarted, isCompleted]);
 
