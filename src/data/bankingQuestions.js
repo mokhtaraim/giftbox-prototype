@@ -43,6 +43,53 @@ const BANK_IMAGES = [
   null // No image for "I don't know any of these banks"
 ];
 
+// Unified wallet options and images for reuse across multiple questions
+const WALLET_OPTIONS = [
+  'لاكي — Lucky',
+  'فايليو — valU',
+  'كاشات — Kashat',
+  'Telda — Telda',
+  'حالاً — Halan',
+  'خزنة — Khazna',
+  'فرصة — Forsa',
+  'دايرة — Dayra',
+  'Sympl — Sympl',
+  'بلنك — Blnk',
+  'فودافون كاش — VF Cash',
+  'اتصالات كاش — ET Cash',
+  'وي باي — WE Pay',
+  'أورنج كاش — Orange Cash',
+  'ماي فوري — myfawry',
+  'انستا باي — INSTAPAY',
+  'أمان — Aman',
+  'Money fellows — Money fellows',
+  'فلاش — Flash',
+  'معرفش أي واحدة من الشركات دي'
+];
+
+const WALLET_IMAGES = [
+  '/images/wallets/Lucky.jpg',
+  '/images/wallets/ValU.jpg',
+  '/images/wallets/Kashat.png',
+  '/images/wallets/Telda.png',
+  '/images/wallets/Halan.jpg',
+  '/images/wallets/Khazna.jpg',
+  '/images/wallets/Forsa.jpg',
+  '/images/wallets/Dayra.jpg',
+  '/images/wallets/Sympl.jpg',
+  '/images/wallets/blnk.jpg',
+  '/images/wallets/VF Cash.jpg',
+  '/images/wallets/etisalat.jpg',
+  '/images/wallets/wepay.png',
+  '/images/wallets/Orange Cash.png',
+  '/images/wallets/Myfawry.jpg',
+  '/images/wallets/Instapay.jpg',
+  '/images/wallets/Aman.jpg',
+  '/images/wallets/Money Fellows.jpg',
+  '/images/wallets/Flash.jpg',
+  null // No image for "I don't know any of these companies"
+];
+
 // Banking survey questions
 export const bankingQuestions = [
   {
@@ -234,6 +281,134 @@ export const bankingQuestions = [
     variant: 'image-mid',
     options: BANK_OPTIONS,
     images: BANK_IMAGES
+  },
+  {
+    id: 'wallet_awareness',
+    type: 'checkbox',
+    question: 'هل تعرف أو سمعت عن مين من المحافظ الإلكترونية؟',
+    subtitle: 'ماي فوري MyFawry على الانترنت او تطبيق الموبايل (مش ماكينة فوري اللي في الكشك او السوبر ماركت)',
+    variant: 'image-mid',
+    options: WALLET_OPTIONS,
+    images: WALLET_IMAGES
+  },
+  {
+    id: 'egyptian_movie',
+    type: 'radio',
+    question: 'انهى من دول فيلم مصرى؟',
+    subtitle: '',
+    options: [
+      'هاري بوتر',
+      'تيتانك',
+      'ذا فولت ان اور ستارز',
+      'حب البنات',
+      'واندر'
+    ]
+  },
+  {
+    id: 'wallet_accounts',
+    type: 'checkbox',
+    question: 'ايه من دول عندك علية حساب او محفظة الكترونية؟',
+    subtitle: '',
+    variant: 'image-mid',
+    options: WALLET_OPTIONS,
+    images: WALLET_IMAGES
+  },
+  {
+    id: 'wallet_opening_likelihood',
+    type: 'radio',
+    question: 'أي مدى احتمالية انك تفتح حساب فى او تستخدم خدمات محفظة الكترونية خلال السنة الجاية؟',
+    subtitle: '',
+    options: [
+      'أكيد هستخدم افتح حساب',
+      'غالبا هستخدم افتح حساب',
+      'مش عارف',
+      'غالبا مش هستخدم افتح حساب',
+      'أكيد مش هستخدم افتح حساب'
+    ]
+  },
+  {
+    id: 'lucky_services',
+    type: 'checkbox',
+    question: 'إيه نوع الخدمات اللي بتستخدمها في Lucky؟',
+    subtitle: '',
+    options: [
+      'خصومات',
+      'دفع فواتير',
+      'تحويل أموال',
+      'شحن رصيد',
+      'تقسيط',
+      'استثمار',
+      'قروض',
+      'أخرى'
+    ]
+  },
+  {
+    id: 'halan_services',
+    type: 'checkbox',
+    question: 'إيه نوع الخدمات اللي بتستخدمها في Halan؟',
+    subtitle: '',
+    options: [
+      'تقسيط',
+      'دفع فواتير',
+      'تحويل أموال',
+      'شحن رصيد',
+      'خصومات',
+      'استثمار',
+      'قروض',
+      'أخرى'
+    ]
+  },
+  {
+    id: 'khazna_services',
+    type: 'checkbox',
+    question: 'إيه نوع الخدمات اللي بتستخدمها في Khazna؟',
+    subtitle: '',
+    options: [
+      'تقسيط',
+      'خصومات',
+      'دفع فواتير',
+      'تحويل أموال',
+      'شحن رصيد',
+      'استثمار',
+      'قروض',
+      'أخرى'
+    ]
+  },
+  {
+    id: 'customer_friendly_wallet',
+    type: 'checkbox',
+    question: 'في رأيك, انهى من الشركات التالية بينطبق عليها العبارة ديه',
+    subtitle: 'شركة مريحة فى التعامل و بتهتم بالعميل',
+    variant: 'image-mid',
+    options: WALLET_OPTIONS,
+    images: WALLET_IMAGES
+  },
+  {
+    id: 'trustworthy_wallet',
+    type: 'checkbox',
+    question: 'في رأيك, انهى من الشركات التالية بينطبق عليها العبارة ديه',
+    subtitle: 'شركة بثق فيها',
+    variant: 'image-mid',
+    options: WALLET_OPTIONS,
+    images: WALLET_IMAGES
+  },
+  {
+    id: 'attractive_ads_wallet',
+    type: 'checkbox',
+    question: 'في رأيك, انهى من الشركات التالية بينطبق عليها العبارة ديه',
+    subtitle: 'شركة اعلاناتها جذابة',
+    variant: 'image-mid',
+    options: WALLET_OPTIONS,
+    images: WALLET_IMAGES
+  },
+  {
+    id: 'innovative_wallet',
+    type: 'checkbox',
+    question: 'في رأيك, انهى من الشركات التالية بينطبق عليها العبارة ديه',
+    subtitle: 'شركة بتقدم كل جديد',
+    variant: 'image-mid',
+    options: WALLET_OPTIONS,
+    images: WALLET_IMAGES
   },
   {
     id: 'movie_series_feedback',
