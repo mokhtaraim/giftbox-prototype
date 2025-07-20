@@ -71,6 +71,8 @@ function App() {
       setIsCompleted(true);
     } else {
       setCurrentQuestionIndex(prev => prev + 1);
+      // Scroll to top when moving to next question
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -78,6 +80,8 @@ function App() {
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(prev => prev - 1);
+      // Scroll to top when moving to previous question
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -108,6 +112,13 @@ function App() {
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
   }, [language]);
+
+  // Scroll to top when question changes (for any reason)
+  useEffect(() => {
+    if (isStarted && !isCompleted) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [currentQuestionIndex, isStarted, isCompleted]);
 
   // Render current question based on type
   const renderQuestion = () => {

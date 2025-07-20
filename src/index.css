@@ -995,10 +995,32 @@ code {
 
 .nps-scale {
   display: flex;
-  justify-content: space-between;
-  gap: 8px;
+  justify-content: center;
+  gap: 4px;
   margin-bottom: 15px;
-  flex-wrap: wrap;
+  width: 100%;
+  overflow-x: visible;
+}
+
+/* Mobile NPS - smaller buttons to fit all 11 in one line */
+@media (max-width: 767px) {
+  .nps-scale {
+    gap: 3px;
+    padding: 0 5px;
+  }
+  
+  .nps-button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    border-width: 1px;
+    flex-shrink: 0;
+  }
+  
+  .nps-labels {
+    font-size: 11px;
+    padding: 0 5px;
+  }
 }
 
 /* Desktop NPS improvements */
@@ -1018,16 +1040,17 @@ code {
 }
 
 .nps-button {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border: 2px solid #ddd;
   border-radius: 8px;
   background: white;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: 'Cairo', sans-serif;
+  flex-shrink: 0;
 }
 
 .nps-button:hover {
