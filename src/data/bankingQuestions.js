@@ -411,6 +411,109 @@ export const bankingQuestions = [
     images: WALLET_IMAGES
   },
   {
+    id: 'unique_services_wallet',
+    type: 'checkbox',
+    question: 'في رأيك, انهى من الشركات التالية بينطبق عليها العبارة ديه',
+    subtitle: 'شركة بتقدم خدمات مختلفة عن كل الشركات التانية',
+    variant: 'image-mid',
+    options: WALLET_OPTIONS,
+    images: WALLET_IMAGES
+  },
+  {
+    id: 'wallet_factors',
+    type: 'checkbox',
+    question: 'إيه أكتر ثلاث عوامل مهمين بالنسبالك لما تقرر تتعامل مع شركة من شركات المحافظ الإلكترونية؟',
+    subtitle: '',
+    options: [
+      'نسبة الفوائد',
+      'سهولة الابليكيشن',
+      'سهولة و سرعة الإجراءات',
+      'موثوق فيها و سمعتها معروفة',
+      'تميز خدمة العملاء',
+      'المصاريف الإدارية',
+      'تميز أنظمة التقسيط',
+      'أخرى'
+    ]
+  },
+  {
+    id: 'coffee_question',
+    type: 'radio',
+    question: 'إيه مش هتستخدمه و إنت بتعمل قهوة؟',
+    subtitle: '',
+    options: [
+      'بن',
+      'سكر',
+      'ملح',
+      'مياه'
+    ]
+  },
+  {
+    id: 'instapay_nps',
+    type: 'nps',
+    question: 'بناء على كل تجاربك مع انستاباى Instapay، الى اى مدى ممكن ترشحه لحد من معارفك؟',
+    subtitle: '(0 = اكيد مش هرشحه، 10 = اكيد هرشحه)',
+    scale: { min: 0, max: 10 }
+  },
+  {
+    id: 'instapay_nps_reasoning',
+    type: 'text',
+    question: 'إيه الأسباب اللي خلتك تدي التقييم ده؟',
+    subtitle: '',
+    placeholder: 'اكتب الأسباب بالتفصيل...'
+  },
+  {
+    id: 'instapay_app_satisfaction',
+    type: 'scale',
+    question: 'على مقياس من 1 الى 5 ايه مدى رضائك عن شركة انستاباى Instapay من حيث التطبيق (الأبليكيشن) Application؟',
+    subtitle: '',
+    options: [
+      '1 ..غير راضى على الأطلاق',
+      '2',
+      '3',
+      '4',
+      '5 .. راضى جدا'
+    ]
+  },
+  {
+    id: 'instapay_customer_service',
+    type: 'scale',
+    question: 'على مقياس من 1 إلى 5، إيه مدى رضاك عن شركة إنستاباي Instapay من حيث خدمة العملاء؟',
+    subtitle: '',
+    options: [
+      '1 .. غير راضي على الإطلاق',
+      '2',
+      '3',
+      '4',
+      '5 .. راضي جداً'
+    ]
+  },
+  {
+    id: 'instapay_partnerships',
+    type: 'scale',
+    question: 'على مقياس من 1 إلى 5، إيه مدى رضاك عن شركة إنستاباي Instapay من حيث عدد الأماكن اللي الشركة بتتعامل معاها (يعني إن اشتراكك في خدمات الشركة يتيح ليك تستفاد من عروض و فرص تقسيط أو حتى تسدد فواتيرك تبع عملات و شركات كتير و متنوعة)؟',
+    subtitle: '',
+    options: [
+      '1 .. غير راضي على الإطلاق',
+      '2',
+      '3',
+      '4',
+      '5 .. راضي جداً'
+    ]
+  },
+  {
+    id: 'instapay_ease_speed',
+    type: 'scale',
+    question: 'على مقياس من 1 إلى 5، إيه مدى رضاك عن شركة إنستاباي Instapay من حيث سهولة و سرعة الإجراءات؟',
+    subtitle: '',
+    options: [
+      '1 .. غير راضي على الإطلاق',
+      '2',
+      '3',
+      '4',
+      '5 .. راضي جداً'
+    ]
+  },
+  {
     id: 'movie_series_feedback',
     type: 'text',
     question: 'ايه اخر فيلم او مسلسل شفته او شفت مقاطع منه؟ ايه هى اكتر حاجة خليته يعجبك او ميعجبكش؟',
