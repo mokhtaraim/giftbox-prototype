@@ -60,7 +60,7 @@ body {
   }
   
   .question-content {
-    padding: 25px 20px 30px; /* Reduced bottom padding since container has margin */
+    padding: 25px 20px 100px; /* Increased bottom padding to prevent overlap with navigation */
     max-height: none; /* Allow content to scroll */
     overflow-y: auto;
   }
@@ -995,66 +995,66 @@ code {
 /* NPS Question */
 .nps-container {
   margin-bottom: auto;
+  width: 100%;
 }
 
 .nps-scale {
-  display: flex;
-  justify-content: center;
-  gap: 4px;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 2px;
   margin-bottom: 15px;
   width: 100%;
-  overflow-x: visible;
+  padding: 0 5px;
 }
 
-/* Mobile NPS - smaller buttons to fit all 11 in one line */
+/* Mobile NPS - dynamic sizing based on container width */
 @media (max-width: 767px) {
   .nps-scale {
-    gap: 2px;
-    padding: 0 10px;
-    justify-content: space-between;
+    gap: 1px;
+    padding: 0 2px;
   }
   
   .nps-button {
-    width: 26px;
-    height: 26px;
-    font-size: 12px;
+    width: 100%;
+    height: calc((100vw - 44px) / 11 - 1px); /* Dynamic height based on screen width */
+    max-height: 32px;
+    min-height: 22px;
+    font-size: clamp(10px, 2.5vw, 14px); /* Responsive font size */
     border-width: 1px;
-    flex-shrink: 0;
-    min-width: 26px;
+    padding: 0;
+    line-height: 1;
   }
   
   .nps-labels {
-    font-size: 10px;
-    padding: 0 10px;
+    font-size: clamp(9px, 2.2vw, 12px);
+    padding: 0 2px;
+    line-height: 1.2;
   }
 }
 
-/* Extra small mobile screens */
-@media (max-width: 380px) {
+/* Small screens optimization */
+@media (max-width: 320px) {
   .nps-scale {
-    gap: 1px;
-    padding: 0 5px;
+    gap: 0;
+    padding: 0 1px;
   }
   
   .nps-button {
-    width: 24px;
-    height: 24px;
-    font-size: 11px;
-    min-width: 24px;
-  }
-  
-  .nps-labels {
-    font-size: 9px;
-    padding: 0 5px;
+    height: calc((100vw - 22px) / 11); /* Even more compact for very small screens */
+    max-height: 26px;
+    min-height: 20px;
+    font-size: 10px;
+    border-radius: 4px;
   }
 }
 
 /* Desktop NPS improvements */
 @media (min-width: 768px) {
   .nps-scale {
+    display: flex;
     justify-content: center;
     gap: 12px;
-    width: 100%;
+    padding: 0;
     margin: 0 auto 20px auto;
   }
   
@@ -1062,20 +1062,21 @@ code {
     width: 45px;
     height: 45px;
     font-size: 18px;
+    border-width: 2px;
   }
 }
 
 .nps-button {
-  width: 32px;
-  height: 32px;
   border: 2px solid #ddd;
-  border-radius: 8px;
+  border-radius: 6px;
   background: white;
-  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: 'Cairo', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -1095,6 +1096,7 @@ code {
   justify-content: space-between;
   font-size: 12px;
   color: #666;
+  margin-top: 8px;
 }
 
 /* Scale Question */
