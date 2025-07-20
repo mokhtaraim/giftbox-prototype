@@ -54,12 +54,10 @@ body {
 /* Mobile optimization - Account for fixed navigation */
 @media (max-width: 767px) {
   .unified-question-container {
-    margin: 10px;
-    /* Calculate height: 100vh - header (~120px) - navigation (80px) - margins (20px) */
-    min-height: calc(100vh - 220px);
-    max-height: calc(100vh - 220px);
-    /* Ensure container ends above fixed navigation */
-    margin-bottom: calc(var(--nav-height) + 10px);
+    margin: 10px 10px 0; /* Remove bottom margin to eliminate gap */
+    /* Calculate height: 100vh - header (~120px) - navigation (80px) - top/side margins (20px) */
+    min-height: calc(100vh - 200px);
+    max-height: calc(100vh - 200px);
   }
   
   .question-content {
