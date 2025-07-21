@@ -315,11 +315,13 @@ code {
   display: flex;
   flex-direction: column;
   background: transparent !important;
-  margin: 15px;
+  margin: 32px 24px;
   border-radius: var(--container-border-radius);
   min-height: 500px;
   overflow: hidden;
-  margin-top: 20px;
+  margin-top: 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07), 0 1.5px 6px rgba(0,0,0,0.04);
+  padding: 32px 24px;
 }
 
 /* Mobile: Remove navigation from container since it's now fixed */
@@ -1000,6 +1002,7 @@ code {
 .nps-container {
   margin-bottom: auto;
   width: 100%;
+  margin-top: 32px;
 }
 
 /* NPS Grid Layout */
@@ -1007,7 +1010,8 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 56px;
   margin-bottom: 20px;
   width: 100%;
 }
@@ -1015,9 +1019,10 @@ code {
 .nps-grid-row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
+  gap: 12px;
   width: max-content;
   justify-items: center;
+  justify-content: center;
 }
 
 .nps-button-wrapper {
@@ -1064,7 +1069,7 @@ code {
 }
 
 .nps-label-above {
-  font-size: 12px;
+  font-size: 14px;
   color: #666;
   margin-bottom: 6px;
   text-align: center;
@@ -1072,7 +1077,7 @@ code {
   font-weight: 500;
   white-space: nowrap;
   position: absolute;
-  top: -24px;
+  top: -48px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -2187,6 +2192,7 @@ code {
   justify-content: space-between;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border: 2px solid transparent;
+  background: white;
 }
 
 .checkbox-option-v2:hover {
@@ -2259,6 +2265,7 @@ code {
   align-items: center;
   margin: 10px 0;
   flex: 1;
+  background: none !important;
 }
 
 .option-image-v2 img {
@@ -2271,6 +2278,9 @@ code {
 .option-text-container-v2 {
   margin-top: auto;
   padding-top: 10px;
+  text-align: right;
+  width: 100%;
+  cursor: pointer;
 }
 
 .option-text-v2 {
