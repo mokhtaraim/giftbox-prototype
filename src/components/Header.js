@@ -31,7 +31,7 @@ const Header = ({ currentQuestion, totalQuestions, showProgress = true, language
           </div>
           
           {/* Right-positioned language selector */}
-          <div className="language-selector">
+          {/* <div className="language-selector">
             <div 
               className="language-dropdown-trigger" 
               onClick={() => setShowDropdown(!showDropdown)}
@@ -57,7 +57,7 @@ const Header = ({ currentQuestion, totalQuestions, showProgress = true, language
                 ))}
               </div>
             )}
-          </div>
+          </div> */}
         </div>
         
         {showProgress && (
