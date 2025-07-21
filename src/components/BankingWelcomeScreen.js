@@ -36,7 +36,7 @@ const BankingWelcomeScreen = ({ onStart, language = 'ar' }) => {
     <section className="welcome-section">
       <div className="welcome-card">
         <img 
-          src="/8.svg" 
+          src="/1.svg" 
           alt="Banking survey illustration" 
           className="welcome-image"
         />
