@@ -103,6 +103,25 @@ export const surveyQuestions = [
     ]
   },
   {
+    id: 'test-v2',
+    type: 'checkbox',
+    question: 'ما هي الشبكات التي تستخدمها حاليًا؟ (نسخة تجريبية)',
+    subtitle: '(يمكنك اختيار أكثر من شبكة واستخدام أيقونة التكبير لمزيد من التفاصيل)',
+    variant: 'image-mid-v2',
+    options: [
+      'فودافون',
+      'اتصالات',
+      'وي',
+      'أورنج'
+    ],
+    images: [
+      '/images/logos/vodafone.svg',
+      '/images/logos/etisalat.png',
+      '/images/logos/we.png',
+      '/images/logos/orange.png'
+    ]
+  },
+  {
     id: 6,
     type: 'nps',
     question: 'ما مدى احتمالية أن توصي أصدقائك باستخدام خدمات فودافون؟',

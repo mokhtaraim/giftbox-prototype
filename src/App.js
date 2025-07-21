@@ -7,6 +7,7 @@ import QuestionLayout from './components/QuestionLayout';
 import WelcomeLayout from './components/WelcomeLayout';
 import RadioQuestion from './components/RadioQuestion';
 import CheckboxQuestion from './components/CheckboxQuestion';
+import CheckboxQuestionV2 from './components/CheckboxQuestionV2';
 import TextQuestion from './components/TextQuestion';
 import NPSQuestion from './components/NPSQuestion';
 import ScaleQuestion from './components/ScaleQuestion';
@@ -155,6 +156,16 @@ function App() {
           />
         );
       case 'checkbox':
+        // Use CheckboxQuestionV2 for the new variant
+        if (currentQuestion.variant === 'image-mid-v2') {
+          return (
+            <CheckboxQuestionV2
+              question={currentQuestion}
+              selectedAnswers={currentAnswer || []}
+              onAnswerChange={handleAnswerChange}
+            />
+          );
+        }
         return (
           <CheckboxQuestion
             question={currentQuestion}
