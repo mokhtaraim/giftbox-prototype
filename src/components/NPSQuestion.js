@@ -10,11 +10,10 @@ const NPSQuestion = ({ question, selectedAnswer, onAnswerChange }) => {
       {question.subtitle && (
         <p className="question-subtitle">{question.subtitle}</p>
       )}
-      
       <div className="nps-container">
-        <div className="nps-scale-wrapper">
+        <div className="nps-grid-wrapper">
           {/* Top row: 0-5 */}
-          <div className="nps-scale nps-scale-top">
+          <div className="nps-grid-row">
             {topRowNumbers.map((number) => (
               <div key={number} className="nps-button-wrapper">
                 {number === 0 && (
@@ -29,9 +28,9 @@ const NPSQuestion = ({ question, selectedAnswer, onAnswerChange }) => {
               </div>
             ))}
           </div>
-          
-          {/* Bottom row: 6-10 */}
-          <div className="nps-scale nps-scale-bottom">
+          {/* Bottom row: 6-10, with empty cell for alignment */}
+          <div className="nps-grid-row">
+            <div className="nps-button-wrapper nps-empty-cell" />
             {bottomRowNumbers.map((number) => (
               <div key={number} className="nps-button-wrapper">
                 {number === 10 && (

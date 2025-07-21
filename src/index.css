@@ -2129,3 +2129,61 @@ code {
     max-height: 40px;
   }
 } 
+
+/* NPS Grid Layout */
+.nps-grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.nps-grid-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  width: max-content;
+}
+
+.nps-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.nps-empty-cell {
+  visibility: hidden;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .nps-grid-wrapper {
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .nps-grid-row {
+    gap: 6px;
+  }
+}
+@media (max-width: 480px) {
+  .nps-grid-row {
+    gap: 4px;
+  }
+}
+@media (max-width: 320px) {
+  .nps-grid-row {
+    gap: 3px;
+  }
+}
+@media (min-width: 768px) {
+  .nps-grid-wrapper {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .nps-grid-row {
+    gap: 12px;
+  }
+} 
