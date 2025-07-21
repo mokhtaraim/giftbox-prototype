@@ -16,38 +16,35 @@ const NPSQuestion = ({ question, selectedAnswer, onAnswerChange }) => {
           {/* Top row: 0-5 */}
           <div className="nps-scale nps-scale-top">
             {topRowNumbers.map((number) => (
-              <button
-                key={number}
-                className={`nps-button ${selectedAnswer === number ? 'selected' : ''}`}
-                onClick={() => onAnswerChange(number)}
-              >
-                {number}
-              </button>
+              <div key={number} className="nps-button-wrapper">
+                {number === 0 && (
+                  <span className="nps-label-above">غير محتمل إطلاقًا</span>
+                )}
+                <button
+                  className={`nps-button ${selectedAnswer === number ? 'selected' : ''}`}
+                  onClick={() => onAnswerChange(number)}
+                >
+                  {number}
+                </button>
+              </div>
             ))}
           </div>
           
           {/* Bottom row: 6-10 */}
           <div className="nps-scale nps-scale-bottom">
             {bottomRowNumbers.map((number) => (
-              <button
-                key={number}
-                className={`nps-button ${selectedAnswer === number ? 'selected' : ''}`}
-                onClick={() => onAnswerChange(number)}
-              >
-                {number}
-              </button>
+              <div key={number} className="nps-button-wrapper">
+                {number === 10 && (
+                  <span className="nps-label-above">محتمل جدًا</span>
+                )}
+                <button
+                  className={`nps-button ${selectedAnswer === number ? 'selected' : ''}`}
+                  onClick={() => onAnswerChange(number)}
+                >
+                  {number}
+                </button>
+              </div>
             ))}
-          </div>
-        </div>
-        
-        <div className="nps-labels">
-          <div className="nps-label-wrapper nps-label-left-wrapper">
-            <span className="nps-label-number">0</span>
-            <span className="nps-label-text">غير محتمل إطلاقًا</span>
-          </div>
-          <div className="nps-label-wrapper nps-label-right-wrapper">
-            <span className="nps-label-number">10</span>
-            <span className="nps-label-text">محتمل جدًا</span>
           </div>
         </div>
       </div>
